@@ -1,0 +1,23 @@
+*{
+  margin:0;
+}
+
+
+.showlist{
+    display:inline-block;
+    border-style: solid;
+    border-color: rgb(204, 204, 204);
+    overflow: hidden;
+    border-radius: 15px;
+    border-width: 1px;
+    width:40%;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 20px;
+    color: #218a17;
+    margin-left: 0;
+    
+    
+  }
+.showlist li{
+  list-style-type: none;
+}

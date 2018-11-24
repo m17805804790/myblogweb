@@ -1,0 +1,21 @@
+.sh_class {
+    border-style: solid;
+    border-color: rgb(204, 204, 204);
+    border-image: initial;
+    overflow: hidden;
+    border-radius: 15px;
+    border-width: 1px;
+    float: left;
+    width:55%;
+  }
+  .sh_class li {
+ 
+    height: 96px;
+    width: 96px;
+    margin: 1%;
+    float: left;
+    background-size: 100%;
+    position: relative;
+    list-style-type:none;
+    
+  }
