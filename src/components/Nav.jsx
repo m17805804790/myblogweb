@@ -30,7 +30,6 @@ class Nav extends Component{
                             <div className="dropdown-menu">
                                 <a className="dropdown-item" href="/fgohd">fgo真好玩</a>
                                 <a className="dropdown-item" href="/yysnav">阴阳师</a>
-                                <a className="dropdown-item" href="#">Link 3</a>
                             </div>
                         </li>  
                     </ul>
