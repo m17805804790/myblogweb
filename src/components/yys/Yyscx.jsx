@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Layout,AutoComplete } from 'element-react';
 import 'element-theme-default';
 import a from './info';
+require('./Yyscx.css');
 class Yyscx extends Component{
     constructor(props){
         super(props);
@@ -105,10 +106,13 @@ class Yyscx extends Component{
         render() {
           return (
           <div>
+            <div className="jieshaoyys">
+              <p>asd</p>
+            </div>
             <Layout.Row className="inline-input border-grid">
               <Layout.Col span="12" className="tac">
                 <AutoComplete
-                  placeholder="请输入内容"
+                  placeholder="输入部分或全部式神名字进行检索"
                   value={this.state.shname}
                   fetchSuggestions={this.querySearch.bind(this)}
                   onSelect={this.handleSelect.bind(this)}
@@ -118,6 +122,7 @@ class Yyscx extends Component{
             </Layout.Row>
             <div id="foryou"><ul>{this.renderli()}</ul></div>
             </div>
+            
           )
         }
     }      

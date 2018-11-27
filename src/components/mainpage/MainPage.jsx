@@ -11,6 +11,7 @@ export default class MainPage extends Component{
                 </div>
                 <div className="picturewords">
                     <p>我老婆真可爱</p>
+                    <p><a href="/aboutme">关于我</a></p>
                 </div>
             </div>
             

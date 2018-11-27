@@ -90,7 +90,7 @@ onSubmit = (e) => {
 
                 <div className="form-group">
                 <button disabled={ this.state.isLoading }  className="btn btn-primary btn-lg">
-                    点击登录
+                    点击注册
                 </button>
                         </div>
                 </form>

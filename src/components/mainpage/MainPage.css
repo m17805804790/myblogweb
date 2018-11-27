@@ -1,6 +1,7 @@
-html,body {
+html {
+    font-size:62.5%;
     height: 100%;
-    width:100%
+    width:100%；
 }
 
 
@@ -16,17 +17,18 @@ html,body {
     /* border-radius: 15px;
     border-width: 1px;
     border-style: solid;
-    border-color: rgb(204, 204, 204); */
+    border-color: rgb(204, 204, 204); */  /*万能看div的边框*/
     width:auto;
     display: inline-block;
     width:40%;
     margin:10% 30% 0% 30%;
 }
 .picture img{
-    height:40%;
-    width: 30%;
-    margin:0px 35%;
-    border-radius: 15px;
+    height:60%;
+    width: 40%;
+    margin:0 30%;
+    border-radius: 1rem;
+    
 }
 .picturewords{
     /* border-radius: 15px;
@@ -39,8 +41,10 @@ html,body {
     margin:1% 30% 0% 30%;
     text-align: center;
 }
-.picturewords p{
-    margin: 1%   auto ;
-    font-size: 1rem;
+.picturewords a,p{
+    margin: 1%   center ;
+    font-size: 1.5rem;
+    color: lightgreen;
+    
     
 }

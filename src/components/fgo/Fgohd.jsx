@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Transfer,Notification} from 'element-react';
 import fgosucai from './fgosucai';
+require('./fgohd.css');
 
 
 
@@ -106,23 +107,24 @@ export default class Fgohd extends Component{
         const { value } = this.state;
         return (
           <div>
-               {/* {this.Alert()} */}
-            <Transfer
-                titles={['可搬素材 ', '我要搬的']}    //用于改变列表名
-                value={value}
-                leftFooter={'<-我全都要'}
-                rightFooter={'<-我咸了'}
-                propsAlias={{                       //数据来源别名懒得改了
-                key: 'value',
-                label: 'desc'
-                }}
-                
-                data={this.data}
-                onChange={this._handleChange}
-                >
-            </Transfer>
+            <div className="fgotransfer">  
+              <Transfer
+                  titles={['可搬素材 ', '我要搬的']}    //用于改变列表名
+                  value={value}
+                  leftFooter={'<-我全都要'}
+                  rightFooter={'<-我咸了'}
+                  propsAlias={{                       //数据来源别名懒得改了
+                  key: 'value',
+                  label: 'desc'
+                  }}
+                  
+                  data={this.data}
+                  onChange={this._handleChange}
+                  >
+              </Transfer>
+            </div> 
 
-            <div className="show">
+            <div className="showsucai">
                    
                 <p>本期需要<span>{this.state.golden}</span>个金材料</p>
                 <p>本期需要<span>{this.state.silver}</span>个银材料</p>

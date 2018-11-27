@@ -1,9 +1,15 @@
- .demonstration {
-    font-size: 20px;
-    color: #8492a6;
-    
+.fgotransfer{
+    margin:2% 0 0 2%;
+    width: 50rem;
+    display: inline-block;
 }
-
-*{
-    margin:0;
+.showsucai{
+    border-radius: 15px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(204, 204, 204);
+    margin:2% 0 0 2%;
+    width: 25%;
+    padding:1% 0 1% 1%;
+    display: inline-block;
 }

@@ -1,0 +1,172 @@
+import React, { Component } from 'react';
+import {Input,Button} from 'element-react';
+require('./LeaveMessage.css')
+
+export default class LeaveMessage extends Component{
+    constructor(){
+        super();
+        this.state={
+
+        }
+    }
+
+    render(){
+        return(
+            <div>
+                <div className="messagelist">
+                    <table className="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th style={{width:'10%'}}>谁干的</th>
+                                <th style={{width:'10%'}}>啥时候</th>
+                                <th>干了啥</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>陈缘</td>
+                                <td>14:39</td>
+                                <td>哔了狗</td>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr>
+                                <td>陈缘</td>
+                                <td>14:39</td>
+                                <td>哔了狗</td>
+                            </tr>
+                        </tbody><tbody>
+                            <tr>
+                                <td>陈缘</td>
+                                <td>14:39</td>
+                                <td>哔了狗</td>
+                            </tr>
+                        </tbody><tbody>
+                            <tr>
+                                <td>陈缘</td>
+                                <td>14:39</td>
+                                <td>哔了狗</td>
+                            </tr>
+                        </tbody><tbody>
+                            <tr>
+                                <td>陈缘</td>
+                                <td>14:39</td>
+                                <td>哔了狗</td>
+                            </tr>
+                        </tbody><tbody>
+                            <tr>
+                                <td>陈缘</td>
+                                <td>14:39</td>
+                                <td>哔了狗</td>
+                            </tr>
+                        </tbody><tbody>
+                            <tr>
+                                <td>陈缘</td>
+                                <td>14:39</td>
+                                <td>哔了狗</td>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr>
+                                <td>陈缘</td>
+                                <td>14:39</td>
+                                <td>哔了狗</td>
+                            </tr>
+                        </tbody><tbody>
+                            <tr>
+                                <td>陈缘</td>
+                                <td>14:39</td>
+                                <td>哔了狗</td>
+                            </tr>
+                        </tbody><tbody>
+                            <tr>
+                                <td>陈缘</td>
+                                <td>14:39</td>
+                                <td>哔了狗</td>
+                            </tr>
+                        </tbody><tbody>
+                            <tr>
+                                <td>陈缘</td>
+                                <td>14:39</td>
+                                <td>哔了狗</td>
+                            </tr>
+                        </tbody><tbody>
+                            <tr>
+                                <td>陈缘</td>
+                                <td>14:39</td>
+                                <td>哔了狗</td>
+                            </tr>
+                        </tbody><tbody>
+                            <tr>
+                                <td>陈缘</td>
+                                <td>14:39</td>
+                                <td>哔了狗</td>
+                            </tr>
+                        </tbody><tbody>
+                            <tr>
+                                <td>陈缘</td>
+                                <td>14:39</td>
+                                <td>哔了狗</td>
+                            </tr>
+                        </tbody><tbody>
+                            <tr>
+                                <td>陈缘</td>
+                                <td>14:39</td>
+                                <td>哔了狗</td>
+                            </tr>
+                        </tbody><tbody>
+                            <tr>
+                                <td>陈缘</td>
+                                <td>14:39</td>
+                                <td>哔了狗</td>
+                            </tr>
+                        </tbody><tbody>
+                            <tr>
+                                <td>陈缘</td>
+                                <td>14:39</td>
+                                <td>哔了狗</td>
+                            </tr>
+                        </tbody><tbody>
+                            <tr>
+                                <td>陈缘</td>
+                                <td>14:39</td>
+                                <td>哔了狗</td>
+                            </tr>
+                        </tbody><tbody>
+                            <tr>
+                                <td>陈缘</td>
+                                <td>14:39</td>
+                                <td>哔了狗</td>
+                            </tr>
+                        </tbody><tbody>
+                            <tr>
+                                <td>陈缘</td>
+                                <td>14:39</td>
+                                <td>哔了狗</td>
+                            </tr>
+                        </tbody><tbody>
+                            <tr>
+                                <td>陈缘</td>
+                                <td>14:39</td>
+                                <td>哔了狗</td>
+                            </tr>
+                        </tbody><tbody>
+                            <tr>
+                                <td>陈缘</td>
+                                <td>14:39</td>
+                                <td>哔了狗</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div className="messageaction">
+                    <div className="messagecontent">
+                        <Input placeholder="请输入内容" />
+                        <Button type="primary">提交</Button>
+                    </div>
+                    
+                </div>
+            </div>
+        )
+    }
+}
