@@ -7,11 +7,20 @@ export default class SigninForm extends Component{
         super()
         this.state={
             username:'',
-            password:''
+            password:'',
+            error:{},
+            isisLoading:false
         }
     }
     onChange = (e) => {
         this.setState({ [e.target.name]: e.target.value });
+        
+    }
+    onSubmit = (e) => {
+        e.preventDefault();
+        this.setState({ errors: {}, isLoading: true });
+        this.props.userSigninRequest(this.state)
+        
         
     }
     render(){
