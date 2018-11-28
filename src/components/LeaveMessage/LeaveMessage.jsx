@@ -6,11 +6,28 @@ export default class LeaveMessage extends Component{
     constructor(){
         super();
         this.state={
-
+            leavemessage:'',
         }
+    }
+    
+    onChange(value) {
+        this.setState({
+            leavemessage:value,
+        })
+        
+    }
+    getlocaltime(){
+        let nowdatetime =new Date();
+        return nowdatetime.toLocaleString;
+    }
+    addleavemessage(){
+        let arr1 = [this.getlocaltime(),this.state.leavemessage];
+        console.log(arr1)
+        
     }
 
     render(){
+        const messagearr = [];
         return(
             <div>
                 <div className="messagelist">
@@ -35,134 +52,22 @@ export default class LeaveMessage extends Component{
                                 <td>14:39</td>
                                 <td>哔了狗</td>
                             </tr>
-                        </tbody><tbody>
-                            <tr>
-                                <td>陈缘</td>
-                                <td>14:39</td>
-                                <td>哔了狗</td>
-                            </tr>
-                        </tbody><tbody>
-                            <tr>
-                                <td>陈缘</td>
-                                <td>14:39</td>
-                                <td>哔了狗</td>
-                            </tr>
-                        </tbody><tbody>
-                            <tr>
-                                <td>陈缘</td>
-                                <td>14:39</td>
-                                <td>哔了狗</td>
-                            </tr>
-                        </tbody><tbody>
-                            <tr>
-                                <td>陈缘</td>
-                                <td>14:39</td>
-                                <td>哔了狗</td>
-                            </tr>
-                        </tbody><tbody>
-                            <tr>
-                                <td>陈缘</td>
-                                <td>14:39</td>
-                                <td>哔了狗</td>
-                            </tr>
-                        </tbody>
-                        <tbody>
-                            <tr>
-                                <td>陈缘</td>
-                                <td>14:39</td>
-                                <td>哔了狗</td>
-                            </tr>
-                        </tbody><tbody>
-                            <tr>
-                                <td>陈缘</td>
-                                <td>14:39</td>
-                                <td>哔了狗</td>
-                            </tr>
-                        </tbody><tbody>
-                            <tr>
-                                <td>陈缘</td>
-                                <td>14:39</td>
-                                <td>哔了狗</td>
-                            </tr>
-                        </tbody><tbody>
-                            <tr>
-                                <td>陈缘</td>
-                                <td>14:39</td>
-                                <td>哔了狗</td>
-                            </tr>
-                        </tbody><tbody>
-                            <tr>
-                                <td>陈缘</td>
-                                <td>14:39</td>
-                                <td>哔了狗</td>
-                            </tr>
-                        </tbody><tbody>
-                            <tr>
-                                <td>陈缘</td>
-                                <td>14:39</td>
-                                <td>哔了狗</td>
-                            </tr>
-                        </tbody><tbody>
-                            <tr>
-                                <td>陈缘</td>
-                                <td>14:39</td>
-                                <td>哔了狗</td>
-                            </tr>
-                        </tbody><tbody>
-                            <tr>
-                                <td>陈缘</td>
-                                <td>14:39</td>
-                                <td>哔了狗</td>
-                            </tr>
-                        </tbody><tbody>
-                            <tr>
-                                <td>陈缘</td>
-                                <td>14:39</td>
-                                <td>哔了狗</td>
-                            </tr>
-                        </tbody><tbody>
-                            <tr>
-                                <td>陈缘</td>
-                                <td>14:39</td>
-                                <td>哔了狗</td>
-                            </tr>
-                        </tbody><tbody>
-                            <tr>
-                                <td>陈缘</td>
-                                <td>14:39</td>
-                                <td>哔了狗</td>
-                            </tr>
-                        </tbody><tbody>
-                            <tr>
-                                <td>陈缘</td>
-                                <td>14:39</td>
-                                <td>哔了狗</td>
-                            </tr>
-                        </tbody><tbody>
-                            <tr>
-                                <td>陈缘</td>
-                                <td>14:39</td>
-                                <td>哔了狗</td>
-                            </tr>
-                        </tbody><tbody>
-                            <tr>
-                                <td>陈缘</td>
-                                <td>14:39</td>
-                                <td>哔了狗</td>
-                            </tr>
-                        </tbody><tbody>
-                            <tr>
-                                <td>陈缘</td>
-                                <td>14:39</td>
-                                <td>哔了狗</td>
-                            </tr>
                         </tbody>
                     </table>
                 </div>
                 <div className="messageaction">
                     <div className="messagecontent">
-                        <Input placeholder="请输入内容" />
-                        <Button type="primary">提交</Button>
+                        <Input 
+                        placeholder="请输入内容" 
+                        type="text"
+                        onChange={this.onChange.bind(this)}
+                        name='leavemessage'
+                        
+                        />
+                        <Button 
+                        type="primary"
+                        onClick={this.addleavemessage()}
+                        >提交</Button>
                     </div>
                     
                 </div>
