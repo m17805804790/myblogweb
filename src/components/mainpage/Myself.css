@@ -1,15 +1,14 @@
 html{
     font-size:62.5%;
 }
-body{
-    background-color:black;
-}
+
 .mainpage2{
     /* border-radius: 1rem;
     border-width: 1px;
     border-style: solid;
     border-color: rgb(204, 204, 204); */
     margin:2% 20%;
+    
 }
 .picture2{
     width:auto;
