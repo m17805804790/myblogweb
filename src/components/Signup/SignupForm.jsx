@@ -36,7 +36,7 @@ onSubmit = (e) => {
         const { errors } = this.state;
         return(
            <form onSubmit={this.onSubmit}>
-               <h1>join us</h1>
+               <h1>本站暂时不开放注册</h1>
                <div className="form-group">
                 <label className="control-label">Username</label>
                 <input

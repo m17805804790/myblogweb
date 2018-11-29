@@ -1,14 +1,14 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import {Notification} from 'element-react';
+import {withRouter} from 'react-router-dom';
 
-
-
-export default class SigninForm extends Component{
+class SigninForm extends Component{
     constructor(){
         super()
         this.state={
             username:'',
             password:'',
-            error:{},
+            errors:{},
             isisLoading:false
         }
     }
@@ -19,15 +19,52 @@ export default class SigninForm extends Component{
     onSubmit = (e) => {
         e.preventDefault();
         this.setState({ errors: {}, isLoading: true });
-        this.props.userSigninRequest(this.state)
+        this.props.userSigninRequest(this.state).then(
+            (response)=>{
+                console.log(response);
+                if(response.data.status=='admin'){
+                    this.openadmin();
+                    this.props.history.push('/');
+                }else if(response.data.status=='guest'){
+                    this.openguest();
+                    this.props.history.push('/');
+                }else{
+                    this.openerror();
+                    this.props.history.push('/signin');
+                }
+                
+            },
+            
+            );
         
         
+    }
+    openadmin(){
+        Notification({
+            title: '哦秀金sama',
+            message: '哦卡唉里',
+            
+          });
+    }
+    openguest(){
+        Notification({
+            title: '傻逼',
+            message: '你来啦',
+            
+          });
+    }
+    openerror(){
+        Notification({
+            title: '傻逼',
+            message: '账号密码错了',
+            
+          });
     }
     render(){
         
         return(
             <form onSubmit={this.onSubmit}>
-               <h1>此功能未完善</h1>
+               <h1>登录功能开放</h1>
                <div className="form-group">
                 <label className="control-label">Username</label>
                 <input
@@ -57,10 +94,10 @@ export default class SigninForm extends Component{
 
                 
 
-                
+                {/* disabled={ this.state.isLoading } */}
 
                 <div className="form-group">
-                <button disabled={ this.state.isLoading }  className="btn btn-primary btn-lg">
+                <button   className="btn btn-primary btn-lg">
                     点击登录
                 </button>
                         </div>
@@ -68,3 +105,4 @@ export default class SigninForm extends Component{
         )
     }
 }
+export default withRouter(SigninForm);
