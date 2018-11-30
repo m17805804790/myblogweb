@@ -87,18 +87,18 @@ export default class Fgohd extends Component{
         }    
       }
     open() {
-        Notification({
-          title: '大佬',
-          message: '我他妈肝爆'
-        });
-      }  
+      Notification({
+        title: '大佬',
+        message: '我他妈肝爆'
+      });
+    }  
     open12() {
-        Notification({
-          title: '？？？？？',
-          message: '你确定要咸嘛，肝tmd',
-          duration: 0
-        });
-      }
+      Notification({
+        title: '？？？？？',
+        message: '你确定要咸嘛，肝tmd',
+        duration: 0
+      });
+    }
 
 
 

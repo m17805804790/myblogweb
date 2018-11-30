@@ -1,5 +1,5 @@
 import React, { Component,Fragment} from 'react';
-import {Dialog} from 'element-react'
+
 import a from './info'
 import ShowList from "./ShowList";
 require('./YysList.css')
@@ -12,37 +12,22 @@ export default class YysList extends Component {
       place:a[0].place,
       shname:'1',
       dialogVisible:false,
-      rarity:'',
-      finalplace:[],
-      counter:0,
+      
+      
+      
 
     }
   }
       
-  findplace(){
-      let arr = [];
-      for(let i=0;i<a.length;i++){
-          if(a.name===this.state.shname){
-               arr.push(a[i].place.map((place,i)=><li key={i}>{place}</li>));
-          }
-      }
-      
-  } 
-  getrarity(){
-      let rarity1 = '';
-      for(let i=0;i<a.length;i++){
-          if(a[i].name===this.state.shname){
-             rarity1=a[i].rarity
-          }
-      }
-      this.setState({rarity:rarity1})              
-  }  
+  
       
   
 
 
 
-
+  onChangeState(stateName){ 
+    this.setState(stateName) 
+  } 
   getP(){
     var items=[];
     for(let i=0;i<=63;i++){
@@ -63,24 +48,7 @@ export default class YysList extends Component {
     return (
       
       <div className="yyscontainer" >
-        <Dialog
-          title="提示"
-          size="tiny" 
-          visible={ this.state.dialogVisible }
-          onCancel={ () => this.setState({ dialogVisible: false }) }
-          lockScroll={ false }>
-          
-          <Dialog.Body>
-            <div>
-            <span>{this.state.counter}</span>
-              <ul>
-                 
-              </ul>
-              {}
-            </div>
-           
-          </Dialog.Body>
-        </Dialog>
+        <ShowList  nowstate={this.state} onClicked={this.onChangeState.bind(this)}/>
         <div className ="sh_class" >
           <ul>
             {this.getP()}
