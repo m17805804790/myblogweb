@@ -36,7 +36,7 @@ export default class ShowList extends Component{
             <div className='showlist'>
 
                 <Dialog
-                    title="提示"
+                    title="信息"
                     size="tiny" 
                     visible={ this.props.nowstate.dialogVisible }
                     onCancel={ () => this.props.onClicked({ dialogVisible: false }) }

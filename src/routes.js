@@ -10,7 +10,7 @@ import Nav from './components/Nav';
 import SigninPage from './components/Signin/SigninPage';
 import Myself from './components/mainpage/Myself';
 import LeaveMessage from './components/LeaveMessage/LeaveMessage';
-
+import Fgoap from './components/fgo/Fgoap'
 export default (
     <div className="">
         <Route path="/" component={Nav}></Route>
@@ -23,5 +23,6 @@ export default (
         <Route path="/fgohd" component={Fgohd}></Route>
         <Route path="/signin" component={SigninPage}></Route>
         <Route path="/aboutme" component={Myself}></Route>
+        <Route path="/try" component={Fgoap}></Route>
     </div>
 )

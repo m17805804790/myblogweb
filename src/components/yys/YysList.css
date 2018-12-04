@@ -2,7 +2,7 @@
     border-style: solid;
     border-color: rgb(204, 204, 204);
     border-image: initial;
-    
+    overflow: hidden;
     border-radius: 15px;
     border-width: 1px;
    
@@ -18,8 +18,9 @@
     list-style-type:none;
     
   }
-  /* .yyscontainer{
+  .yyscontainer{
     background-image: url('../img/bj.jpg');
     height: 90rem;
+    position: absolute;
     
-  } */
+  }

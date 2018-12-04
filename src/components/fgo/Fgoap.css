@@ -1,0 +1,42 @@
+.row{
+    margin:0;
+}
+.hdlist{
+    border-style: solid;
+    border-color: grey;
+    border-radius: 1.5rem;
+    border-width: 2px;
+}
+
+.hdlist h3{
+    background-color: lightgreen;
+}
+
+.cailiaolist{
+    border-style: solid;
+    border-color: rgb(204, 204, 204);
+    border-radius: 1.5rem;
+    border-width: 1px;
+    padding-top:1rem;
+    padding-bottom: 1rem;
+    
+}
+.sucainame{
+    background-color: aqua;
+    border-style: solid;
+    border-color: grey;
+    border-radius: 1.5rem 0 0 1.5rem;
+    border-width: 2px;
+}
+.sucaishuliang{
+    background-color: black;
+    
+}
+.sucainame p{
+    font-size: 2rem;
+    
+    line-height: 2rem;
+    color: #212529;
+    text-align: center;
+}
+

@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import {Notification} from 'element-react';
 import {withRouter} from 'react-router-dom';
+import setAuthorizationToken from '../../utils/setAuthorizationToken';
+import jwtDecode from 'jwt-decode';
+
+
 
 class SigninForm extends Component{
     constructor(){
@@ -17,15 +21,24 @@ class SigninForm extends Component{
         
     }
     onSubmit = (e) => {
+        const {setCurrentUser} = this.props
         e.preventDefault();
         this.setState({ errors: {}, isLoading: true });
         this.props.userSigninRequest(this.state).then(
             (response)=>{
                 console.log(response);
-                if(response.data.status=='admin'){
+                if(response.data.status==='admin'){
+                    const token =response.data.token;
+                    localStorage.setItem('jwtToken', token);
+                    setAuthorizationToken(token);    
+                    setCurrentUser(jwtDecode(token))
                     this.openadmin();
                     this.props.history.push('/');
-                }else if(response.data.status=='guest'){
+                }else if(response.data.status==='guest'){
+                    const token =response.data.token;
+                    localStorage.setItem('jwtToken', token);
+                    setAuthorizationToken(token);    
+                    setCurrentUser(jwtDecode(token))
                     this.openguest();
                     this.props.history.push('/');
                 }else{

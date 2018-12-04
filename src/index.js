@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import FlashMessagesList from './components/flash/FlashMessageList';
+
 import * as serviceWorker from './serviceWorker';
 import {createStore, applyMiddleware} from 'redux';
 import { Provider } from 'react-redux';
@@ -24,8 +24,6 @@ ReactDOM.render(
     <Provider store={ store }>
         <Router routes={routes}>
           <div>
-            
-            <FlashMessagesList/>
             { routes }
           </div>
         </Router>  

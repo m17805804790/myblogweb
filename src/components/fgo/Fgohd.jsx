@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Transfer,Notification} from 'element-react';
+import {Transfer,Notification,Layout} from 'element-react';
 import fgosucai from './fgosucai';
 require('./fgohd.css');
 
@@ -107,34 +107,36 @@ export default class Fgohd extends Component{
         const { value } = this.state;
         return (
           <div>
-            <div className="fgotransfer">  
-              <Transfer
-                  titles={['可搬素材 ', '我要搬的']}    //用于改变列表名
-                  value={value}
-                  leftFooter={'<-我全都要'}
-                  rightFooter={'<-我咸了'}
-                  propsAlias={{                       //数据来源别名懒得改了
-                  key: 'value',
-                  label: 'desc'
-                  }}
-                  
-                  data={this.data}
-                  onChange={this._handleChange}
-                  >
-              </Transfer>
-            </div> 
-
-            <div className="showsucai">
-                   
+            <Layout.Row gutter="10">
+            <Layout.Col xs="24" sm="19" md="20" lg="18">
+              <div className="grid-content bg-purple">
+                <Transfer
+                      titles={['可搬素材 ', '我要搬的']}    //用于改变列表名
+                      value={value}
+                      leftFooter={'<-我全都要'}
+                      rightFooter={'<-我咸了'}
+                      propsAlias={{                       //数据来源别名懒得改了
+                      key: 'value',
+                      label: 'desc'
+                      }}
+                      
+                      data={this.data}
+                      onChange={this._handleChange}
+                      >
+                  </Transfer>
+              </div>
+            </Layout.Col>
+            <Layout.Col xs="24" sm="5" md="4" lg="6">
+              <div className="grid-content bg-purple-light">
                 <p>本期需要<span>{this.state.golden}</span>个金材料</p>
                 <p>本期需要<span>{this.state.silver}</span>个银材料</p>
                 <p>本期需要<span>{this.state.copper}</span>个铜材料</p>
-                
-            </div>
-
-
-
+              </div>
+            </Layout.Col>
+            
+            </Layout.Row>
           </div>
+
         )
       }   
         
