@@ -1,7 +1,7 @@
 {
   "name": "react-blog",
   "version": "0.1.0",
-  "homepage": "https://m17805804790.github.io/my-redux-blog",
+  "homepage": ".",
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
@@ -10,6 +10,7 @@
     "element-theme-default": "^1.4.13",
     "express": "^4.16.4",
     "jwt-decode": "^2.2.0",
+    "lodash": "^4.17.11",
     "querystring": "^0.2.0",
     "react": "^16.6.1",
     "react-dom": "^16.6.1",
@@ -27,8 +28,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy": "yarn run build",
-    "deploy": "gh-pages -d build"
+    "predeploy": "yarn run build"
   },
   "eslintConfig": {
     "extends": "react-app"

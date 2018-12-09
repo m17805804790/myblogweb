@@ -8,7 +8,7 @@ export default class Myself extends Component{
             <div>
                 <div className="mainpage2">
                     <div className="picture2">
-                        <img src={require('../img/qingji.jpg')}></img>
+                        <img src={require('../img/qingji.jpg')}alt={'老婆'}></img>
                     </div>
                 </div>
                 <div className="picturewords2">

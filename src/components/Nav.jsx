@@ -16,13 +16,13 @@ class Nav extends Component{
         const adminLinks = (
             <Fragment>
             <li className="nav-item">
-                <a className="nav-link" href="#">我的日志</a>
+                <a className="nav-link" href="javascript：void">我的日志</a>
             </li>
             <li className="nav-item">
                 <a className="nav-link" href="/leavemessage">留言</a>
             </li>
                 <li className="nav-item dropdown">
-                    <a className="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                    <a className="nav-link dropdown-toggle" href="javascript：void" id="navbardrop" data-toggle="dropdown">
                         微小的贡献
                     </a>
                 <div className="dropdown-menu">
@@ -31,7 +31,7 @@ class Nav extends Component{
                 </div>
             </li>
             <li className="nav-item">
-                <a className="nav-link" href="#" onClick={ this.logout.bind(this) }>登出</a>
+                <a className="nav-link" href="javascript：void" onClick={ this.logout.bind(this) }>登出</a>
             </li>  
             </Fragment>  
           );
@@ -39,7 +39,7 @@ class Nav extends Component{
             <Fragment>
             <ul className="navbar-nav mr-auto">
               <li className="nav-item dropdown">
-                     <a className="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                     <a className="nav-link dropdown-toggle" href="javascript：void" id="navbardrop" data-toggle="dropdown">
                         微小的贡献
                     </a>
                     <div className="dropdown-menu">
@@ -48,7 +48,7 @@ class Nav extends Component{
                     </div>
                 </li>   
                 <li className="nav-item">
-                    <a className="nav-link" href="#" onClick={ this.logout.bind(this) }>登出</a>
+                    <a className="nav-link" href="javascript：void" onClick={ this.logout.bind(this) }>登出</a>
                 </li>  
             </ul>
             </Fragment>

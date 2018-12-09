@@ -7,7 +7,7 @@ export default class MainPage extends Component{
         return(
             <div className="mainpage">
                 <div className="picture">
-                    <img src={require('../img/qingji.jpg')}></img>
+                    <img src={require('../img/qingji.jpg') }alt={'asd'}></img>
                 </div>
                 <div className="picturewords">
                     <p>我老婆真可爱</p>

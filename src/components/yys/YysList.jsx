@@ -29,10 +29,10 @@ export default class YysList extends Component {
     this.setState(stateName) 
   } 
   getP(){
-    var items=[];
-    for(let i=0;i<=63;i++){
+    let items=[];
+    for(let i=0;i<a.length;i++){
       let ex=a[i].name;
-       items.push(<li key={i}><div><a href="#"><img onClick={()=>{this.setState({shname:ex,dialogVisible:true})}}alt={ex} src={require('../img/'+ex+'.png') } /></a></div></li>);
+       items.push(<li key={i}><div><a href="javascript:void"><img onClick={()=>{this.setState({shname:ex,dialogVisible:true})}}alt={ex} src={require('../img/'+ex+'.png') } /></a></div></li>);
        
     }  //render出所有的式神图片
     
