@@ -44,5 +44,6 @@
     "gh-pages": "^2.0.1",
     "redux-devtools-extension": "^2.13.5"
   },
-  "proxy": "http://localhost:6060"
+  "proxy": "http://localhost:6060",
+  "license":"ISC"
 }
