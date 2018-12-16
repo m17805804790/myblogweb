@@ -135,6 +135,11 @@ export default class Fgohd extends Component{
             </Layout.Col>
             
             </Layout.Row>
+            <Layout.Row gutter="10">
+                        
+
+
+            </Layout.Row>
           </div>
 
         )

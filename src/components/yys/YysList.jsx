@@ -18,13 +18,6 @@ export default class YysList extends Component {
 
     }
   }
-      
-  
-      
-  
-
-
-
   onChangeState(stateName){ 
     this.setState(stateName) 
   } 
@@ -42,11 +35,7 @@ export default class YysList extends Component {
   } 
   
   render() {
-    
-    console.log(this.state)
-    
     return (
-      
       <div className="yyscontainer" >
         <ShowList  nowstate={this.state} onClicked={this.onChangeState.bind(this)}/>
         <div className ="sh_class" >
@@ -54,10 +43,6 @@ export default class YysList extends Component {
             {this.getP()}
           </ul>
         </div>
-        
-        
-                
-        
       </div>
       
     );

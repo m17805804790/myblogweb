@@ -26,7 +26,6 @@ class SigninForm extends Component{
         this.setState({ errors: {}, isLoading: true });
         this.props.userSigninRequest(this.state).then(
             (response)=>{
-                console.log(response);
                 if(response.data.status==='admin'){
                     const token =response.data.token;
                     localStorage.setItem('jwtToken', token);
@@ -49,8 +48,6 @@ class SigninForm extends Component{
             },
             
             );
-        
-        
     }
     openadmin(){
         Notification({
@@ -61,15 +58,15 @@ class SigninForm extends Component{
     }
     openguest(){
         Notification({
-            title: '傻逼',
-            message: '你来啦',
+            title: '登录成功',
+            message: '欢迎',
             
           });
     }
     openerror(){
         Notification({
-            title: '傻逼',
-            message: '账号密码错了',
+            title: '那啥',
+            message: '账号密码错误',
             
           });
     }

@@ -1,3 +1,6 @@
-.navid  a,li{
+.navid  a{
+    color:lightgreen;
+}
+.navid li{
     color:lightgreen;
 }

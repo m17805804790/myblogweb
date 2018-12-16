@@ -1,22 +1,26 @@
-*{
-  margin:0;
-}
 
 
-.showlist{
+/* .showlist{
     display:inline-block;
     border-style: solid;
     border-color: rgb(204, 204, 204);
     border-radius: 1.5rem;
     border-width: 1px;
-    
+    width: 100%;
     font-family: "Times New Roman", Times, serif;
     font-size: 20px;
     color:lightgreen;
     
     
     
-  }
-.showlist li{
+  } */
+/* .showlist li{
   list-style-type: none;
+} */
+.yysdialog{
+  width: 100%;
+  color:black;
+}
+.yysdialog li{
+  list-style-type: disc;
 }

@@ -26,7 +26,7 @@ class Nav extends Component{
                         微小的贡献
                     </a>
                 <div className="dropdown-menu">
-                    <a className="dropdown-item" href="/fgohd">fgo真好玩</a>
+                    <a className="dropdown-item" href="/fgoap">fgo真好玩</a>
                     <a className="dropdown-item" href="/yysnav">阴阳师</a>
                 </div>
             </li>
@@ -84,11 +84,6 @@ class Nav extends Component{
 
     render(){
         const {isAuthenticated,user} =this.props.signin;
-        
-    
-         
-       
-        
         return(
             <div className='navbar navbar-expand-md navbar-dark navid bg-dark '  >
                 <a className="navbar-brand" href="/">永老无别离的个人博客</a>

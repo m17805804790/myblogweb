@@ -107,7 +107,7 @@ class Yyscx extends Component{
           return (
           <div>
             <div className="jieshaoyys">
-              <p>asd</p>
+              
             </div>
             <Layout.Row className="inline-input border-grid">
               <Layout.Col span="12" className="tac">

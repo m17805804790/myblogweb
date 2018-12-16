@@ -12,9 +12,9 @@ export default class Myself extends Component{
                     </div>
                 </div>
                 <div className="picturewords2">
-                    <p>一位热爱ACG的玩家</p>
-                    <p>一只正在成长中的菜鸟</p>
-                    <p>一头苦逼的前端程序猿</p>
+                    <p>ACG爱好者</p>
+                    <p>WARFRAME爱好者</p>
+                    <p>前端爱好者</p>
                 </div>
             </div>
            

@@ -1,52 +1,92 @@
 import React, { Component ,Fragment} from 'react';
-import {Slider,Dialog,Button,Notification} from 'element-react';
+import 'antd/dist/antd.css';
+import { Slider,Button,Modal,Col,Row,InputNumber,notification,Select } from 'antd';
 import  fgosucai from './fgosucai';
 require('./Fgoap.css');
-
+const Option = Select.Option;
 export default class Fgoap extends Component{
     constructor(){
         super();
         this.state={
             btnability:false,
-            dialogVisible: false,
+            dialogVisibletj: false,
+            dialogVisiblesz:false,
             sucaiarr:[],
             hdname:'',
             golden:0,
             sliver:0,
-            copper:0
+            copper:0,
+            goldenplus:0,
+            sliverplus:0,
+            copperplus:0,
+            goldenbasic:0,
+            sliverbasic:0,
+            copperbasic:0,
+            smode:'',
            
         }
     }
-    showinfo=()=>{
-        this.setState({dialogVisible: true})             //显示dialog框
+    
+    showinfo=(arr)=>{
+        if(arr.length===0){
+            notification.open({
+                message: '没有选择活动',
+                description: '选择活动列表下活动',
+            });
+            this.setState({
+                btnability:true
+            })
+         
+        }else{ 
+            this.setState({
+                dialogVisibletj: true
+            }) 
+        }            //显示dialog框
     }
-    showsucailist= (arr) => {
+    showsucailist (arr)  {
         let items=[];
-        
         for(let i=0;i<arr.length;i++){     
                 items.push(
-                    <Slider 
-                    key={i}
-                    max={arr[i][1]}
-                    showInput={true} 
-                    value={this.state.sucaiarr[i][4]}
-                    showInputControls={false}
-                    onChange={(value)=>{
-                        arr[i][4]=value;
-                        this.getfinal(arr)    //这个函数在下面定义了
-                        this.setState({sucaiarr:arr})
-                    }}
-                    >
-                    
-                    </Slider>
+                    <Row key={i}>
+                        <Col span={12}>
+                        <Slider 
+                            key={i}
+                            max={arr[i][1]}
+                            value={arr[i][4]}
+                            showInputControls={false}
+                            onChange={(value)=>{
+                                arr[i][4]=value;
+                                this.getfinal(arr)    //这个函数在下面定义了
+                                this.setState({sucaiarr:arr})
+                            }}
+                            >
+                        </Slider>
+                        </Col>
+                        <Col span={4}>
+                        <InputNumber 
+                            key={i}
+                            min={0} 
+                            max={20} 
+                            style={{ marginLeft: 16 }}
+                            value={arr[i][4]} 
+                            onChange={(value)=>{
+                                arr[i][4]=value;
+                                this.getfinal(arr)    //这个函数在下面定义了
+                                this.setState({sucaiarr:arr})
+                                console.log(this.state)
+                            }}
+                        />
+                        </Col>
+                    </Row>
                 )
             }
-            console.log(items)
+            
         return(
             <Fragment>{items}</Fragment> 
         )
         
     }
+    
     showsucainame= (arr) =>{
         let items=[];
         for(let i=0;i<arr.length;i++){
@@ -80,87 +120,119 @@ export default class Fgoap extends Component{
         })
         
     }
-    wqdy = (arr) =>{
+    wqdy = (arr) =>{    //我全都要
         if(arr.length===0){
-            this.noarropen()
+            notification.open({
+                message: 'caonima',
+                description: 'fuck',
+            });
             this.setState({
                 btnability:true
             })
+         
         }
         else{
-            let arr1 = this.state.sucaiarr;
-            for(let i=0;i<arr1.length;i++){
-                arr1[i][4]=arr1[i][1]
-            }
+            let nowarr = this.state.sucaiarr.map((v,i)=>
+            v[4]===v[1]?v:v.map((vv,ii)=>ii===4?v[1]:vv)
+
+             )
             this.setState({
-                sucaiarr:arr1.slice(0)
+                sucaiarr:nowarr
             })
-            console.log(this.state)
-            
+            this.getfinal(nowarr);
         }
     }
     wxl = (arr) =>{
         if(arr.length===0){
-            this.noarropen()
-        }else{
-            let arr1 = this.state.sucaiarr;
-            for(let i=0;i<arr1.length;i++){
-                arr1[4]=0
-            }
+            notification.open({
+                message: 'caonima',
+                description: 'fuck',
+            });
             this.setState({
-                sucaiarr:arr1.slice(0)
+                btnability:true
             })
+        }else{
+            let nowarr = this.state.sucaiarr.map((v,i)=>
+            v[4]===0?v:v.map((vv,ii)=>ii===4?0:vv)
+
+             )
+            this.setState({
+                sucaiarr:nowarr
+            })
+            this.getfinal(nowarr);
         }
     }
-    noarropen(){
-        Notification({
-            title: '您还没选择活动呢',
-            message: '点击活动列表选择活动'
-          });
-    }
-
+    
+    
+    
 
 // align-items-start 用于使同行的col不同高度
     render(){
         
         return(
             
-            <div className="row align-items-start">    
-                <div className="hdlist col-sm-3 ">
+            <Row className="allcomponent"> 
+                <Col xs={24} sm={6} className="hdlist">
                     <h2>活动列表</h2>
                     <h3 style={{cursor:'pointer'}} onClick={()=>this.setState({sucaiarr:fgosucai,btnability:false})}>万圣三期</h3>
-                    <h3 style={{cursor:'pointer'}} onClick={()=>this.setState({sucaiarr:fgosucai})}>万圣三期</h3>
-                </div>
-                <div className="cailiaolist row col-sm-9">
-                    <div className="col-sm-12 cx">
-                        <Button className="bt1" type="primary" style={{margin:'0 center'}} disabled={this.state.btnability} onClick={()=>this.wqdy(this.state.sucaiarr)}>我全都要</Button>
-                        <Button className="bt2" type="primary" style={{margin:'0 center'}} disabled={this.state.btnability} onClick={()=>this.wxl(this.state.sucaiarr)}>我咸了</Button>
-                        <Button className="bt2" type="primary" style={{margin:'0 center'}}onClick={this.showinfo}>查看统计</Button>
-                    </div>
-                    <div className="col-sm-2 col-xs-3 sucainame">
-                        {this.showsucainame(this.state.sucaiarr)}
-                    </div>
+                    
+                </Col>
+                <Col xs={24} sm={18}className="cailiaolist">
+                    <Row>
+                        <Col span={24}className="cx">
+                            <Button className="bt1" type="primary" style={{float:'left'}} disabled={this.state.btnability} onClick={()=>this.wqdy(this.state.sucaiarr)}>我全都要</Button>
+                            <Button className="bt2" type="primary" style={{float:'left'}} disabled={this.state.btnability} onClick={()=>this.wxl(this.state.sucaiarr)}>我咸了</Button>
+                            <Button className="bt2" type="primary" style={{float:'left'}} disabled={this.state.btnability} onClick={()=>this.setState({dialogVisiblesz:true})}>设置加成等</Button>
+                            <Button className="bt2" type="primary" style={{float:'left'}} disabled={this.state.btnability} onClick={()=>this.showinfo(this.state.sucaiarr)}>查看统计</Button>
+                        </Col>
+                        <Col span={6}className="sucainame">
+                            {this.showsucainame(this.state.sucaiarr)}
+                        </Col>
 
-                    <div className="col-sm-10 col-xs-9 sucaishuliang">
-                        {this.showsucailist(this.state.sucaiarr)}
-                    </div>
-                </div>
-                    <Dialog
+                        <Col span={18}className="sucaishuliang">
+                            {this.showsucailist(this.state.sucaiarr)}
+                        </Col>
+                    </Row>
+                </Col>
+                
+                    <Modal
                         title="大佬"
                         size="tiny"
-                        visible={ this.state.dialogVisible }
-                        onCancel={ () => this.setState({ dialogVisible: false }) }
+                        visible={ this.state.dialogVisibletj }
+                        onCancel={ () => this.setState({ dialogVisibletj: false }) }
                         lockScroll={ false }
+                        footer={null}
                     >
-                        <Dialog.Body>
+                        
                         <p>一共需要{this.state.golden}个金材料</p>
                         <p>一共需要{this.state.sliver}个银材料</p>
                         <p>一共需要{this.state.copper}个铜材料</p>
-                        </Dialog.Body>
-                        <Dialog.Footer className="dialog-footer">
-                        </Dialog.Footer>
-                    </Dialog>
-            </div>
+                        
+                    </Modal>
+                    <Modal
+                        title="asd"
+                        size="tiny"
+                        visible={ this.state.dialogVisiblesz }
+                        onCancel={ () => this.setState({ dialogVisiblesz: false }) }
+                        lockScroll={ false }
+                        footer={null}
+                    >
+                        <Select defaultValue="a" style={{ width: 120 }} onChange={(v)=>this.setState({smode:v})}>
+                            <Option value="a">金银混合+铜</Option>
+                            <Option value="b">金铜混合+银</Option>
+                            <Option value="c">金+铜银混合</Option>
+                            <Option value="d">金+银+铜</Option>
+                        </Select>
+                        <br />
+                        <InputNumber min={0} max={12} defaultValue={1} value={this.state.goldenplus}onChange={(v)=>this.setState({goldenplus:v})} />
+                        <InputNumber min={0} max={12} defaultValue={1} value={this.state.goldenplus}onChange={(v)=>this.setState({goldenplus:v})} />
+                        <InputNumber min={0} max={12} defaultValue={1} value={this.state.goldenplus}onChange={(v)=>this.setState({goldenplus:v})} />
+                        <br />
+                        <InputNumber min={0} max={12} defaultValue={1} value={this.state.goldenbasic}onChange={(v)=>this.setState({goldenbasic:v})} />
+                        <InputNumber min={0} max={12} defaultValue={1} value={this.state.goldenbasic}onChange={(v)=>this.setState({goldenbasic:v})} />
+                        <InputNumber min={0} max={12} defaultValue={1} value={this.state.goldenbasic}onChange={(v)=>this.setState({goldenbasic:v})} />
+                    </Modal>
+            </Row> 
         )
     }
 }
