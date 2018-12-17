@@ -2,7 +2,6 @@ import React from 'react';
 import {Route} from 'react-router-dom';
 import SignupPage from './components/Signup/SignupPage';
 import YysNav from './components/yys/YysNav';
-import Yyscx from './components/yys/Yyscx';
 import YysList from './components/yys/YysList';
 import MainPage from './components/mainpage/MainPage';
 import Nav from './components/Nav';

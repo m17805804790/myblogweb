@@ -1,5 +1,4 @@
 import React, { Component ,Fragment} from 'react';
-import 'antd/dist/antd.css';
 import { Slider,Button,Modal,Col,Row,InputNumber,notification,Select } from 'antd';
 import  fgosucai from './fgosucai';
 require('./Fgoap.css');
@@ -123,8 +122,8 @@ export default class Fgoap extends Component{
     wqdy = (arr) =>{    //我全都要
         if(arr.length===0){
             notification.open({
-                message: 'caonima',
-                description: 'fuck',
+                message: '尚未选择活动',
+                description: '选择活动列表下的一个活动',
             });
             this.setState({
                 btnability:true
@@ -217,7 +216,7 @@ export default class Fgoap extends Component{
                         lockScroll={ false }
                         footer={null}
                     >
-                        <Select defaultValue="a" style={{ width: 120 }} onChange={(v)=>this.setState({smode:v})}>
+                        <Select defaultValue="d" style={{ width: '100%' }} onChange={(v)=>this.setState({smode:v})}>
                             <Option value="a">金银混合+铜</Option>
                             <Option value="b">金铜混合+银</Option>
                             <Option value="c">金+铜银混合</Option>

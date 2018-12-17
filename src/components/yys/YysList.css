@@ -1,22 +1,43 @@
-.sh_class {
-    border-style: solid;
-    border-color: rgb(204, 204, 204);
-    border-image: initial;
-    overflow: hidden;
-    border-radius: 15px;
-    border-width: 1px;
-   
-  }
-  .sh_class li {
- 
-    height: 60px;
-    width: 60px;
-    margin: 1.5rem;
-    display: inline-block;
-    list-style-type:none;
-    
-  }
-  .yyscontainer{
-    background-image: url('../img/bj.jpg');
+.Nborder{
+  margin:5px;
+  border:1px solid grey;
+  border-radius: 10px;
+}
+.Rborer{
+  margin:5px;
+  border:1px solid skyblue;
+  border-radius: 10px;
+}
+.SRborder{
+  margin:5px;
+  border:1px solid purple;
+  border-radius: 10px;
+}
+.SSRborder{
+  margin:5px;
+  border:1px solid gold;
+  border-radius: 10px;
+}
+
+.yyscontainer{
     height: calc(100vh - 45px);
-  }
+}
+.listitem{
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin:100px 0 0 100px;
+  text-align: center;
+  line-height: 30px;
+  display: inline-block;
+  padding: 8px 20px;
+  margin: 8px;
+  cursor: pointer;
+}
+.listitem:hover{
+    background-color:skyblue;
+}
+.sh_class{
+  display: flex;
+  justify-items: center;
+  align-items: center;
+}

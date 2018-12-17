@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Row,Col,Menu} from 'antd';
 import { Link } from 'react-router-dom';
-import Axios from 'axios';
+// import Axios from 'axios';
 
 require('./Message.css')
 

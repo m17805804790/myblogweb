@@ -1,0 +1,13 @@
+.allccreenli{
+    display: block;
+    text-align: center;
+    line-height: 40px;
+    background-color: lightblue;
+    list-style-type:none;
+	list-style-position:outside;
+    width: 100%;
+    height: 40px;
+    margin-left: -20px;
+    margin-top: 20px;
+    cursor: pointer;
+}

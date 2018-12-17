@@ -12,6 +12,7 @@ import routes from './routes';
 import setAuthorizationToken from './utils/setAuthorizationToken';
 import { setCurrentUser } from './actions/SigninActions';
 import jwtDecode from 'jwt-decode';
+import 'antd/dist/antd.css';
 
 
 

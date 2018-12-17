@@ -9,7 +9,6 @@
 .hdlist{
     border-style: solid;
     border-color: grey;
-    border-radius: 0.5rem;
     border-width: 1px;
     color:white;
 }
@@ -19,7 +18,7 @@
 
 }
 .hdlist h3:hover{
-    background-color:grey;
+    background-color:skyblue;
 }
 .hdlist h3{
     background-color:white;
@@ -31,7 +30,6 @@
 .cailiaolist{
     border-style: solid;
     border-color: rgb(204, 204, 204);
-    border-radius: 1.5rem;
     border-width: 1px;
     padding-top:1rem;
     padding-bottom: 1rem;

@@ -58,9 +58,9 @@ class Nav extends Component{
             <li className="nav-item">
             <a className="nav-link" href="/signin">登录</a>
             </li>    
-            <li className="nav-item">
+            {/* <li className="nav-item">
                 <a className="nav-link" href="/signup">注册</a>
-            </li> 
+            </li>  */}
             </Fragment>
         ) 
         
@@ -106,7 +106,6 @@ class Nav extends Component{
 
 
 const mapStateToProps = (state) =>{
-    console.log(state)
     return {
         signin: state.signin
       };

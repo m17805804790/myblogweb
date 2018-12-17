@@ -1,16 +1,13 @@
 import React, { Component } from 'react'
-import {
-    Link
-} from 'react-router-dom'
-
+require('./YysNav.css')
 class YysNav extends Component{
     render(){
         
         return(
             <div className="licontainer">
-                <ul className="list-group">
-                    <li className="list-group-item"><Link to="/yyslist">我超级懒</Link></li>
-                    <li className="list-group-item"><Link to="/yyscx">我有点懒</Link></li>
+                <ul>
+                    <li className="allccreenli"onClick={()=>this.props.history.push('/yyslist')}><p>点击就送</p></li>
+                    <li className="allccreenli"onClick={()=>this.props.history.push('/yyscx')}><p>手动挡</p></li>
                 </ul>
                 
             </div>

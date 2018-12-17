@@ -1,5 +1,5 @@
 import React, { Component} from 'react';
-import {Dialog} from 'element-react'
+import {Modal} from 'antd';
 import a from './info';
 require('./ShowList.css')
 
@@ -14,25 +14,29 @@ export default class ShowList extends Component{
         }
         
     } 
+    onOk(){
+        
+    }
     render(){  
         return(
-            <div className='showlist'>
-                <Dialog
-                    className="yysdialog"
-                    title="式神信息"
-                    size="tiny" 
-                    visible={ this.props.nowstate.dialogVisible }
-                    onCancel={ () => this.props.onClicked({ dialogVisible: false }) }
-                    lockScroll={ false }>
-                    <Dialog.Body>
-                        <div>
-                        <ul>
-                            {this.findplace()}
-                        </ul>
-                        </div>
-                    </Dialog.Body>
-                </Dialog>
-            </div>
+            
+                    <Modal
+                        className="yysdialog"
+                        title="式神信息"
+                        
+                        visible={this.props.nowstate.YYSINFOVisible }
+                        onCancel={ () => this.props.onClicked({ YYSINFOVisible: false }) }
+                        lockScroll={ false }
+                        footer={null}
+                    >
+                        
+                       <div>
+                           <ul>
+                               {this.findplace()}
+                           </ul>
+                       </div>
+                        
+                    </Modal>
       
         )
     }
