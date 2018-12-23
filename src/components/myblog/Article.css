@@ -1,0 +1,11 @@
+.articlepage{
+    height: calc(100vh - 45px)
+}
+.articleaside{
+    background-color: grey;
+    height: calc(100vh - 45px);
+    
+}
+.articleplace p{
+    text-indent: 5px;
+}

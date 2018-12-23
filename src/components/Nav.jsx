@@ -1,6 +1,7 @@
 import React, { Component,Fragment } from 'react';
 import {connect} from 'react-redux';
 import {logout} from '../actions/SigninActions';
+import {Link} from 'react-router-dom';
 require('./Nav.css')
 class Nav extends Component{
     
@@ -16,22 +17,22 @@ class Nav extends Component{
         const adminLinks = (
             <Fragment>
             <li className="nav-item">
-                <a className="nav-link" href="javascript：void">我的日志</a>
+                <Link className="nav-link" to="/articlelist">我的日志</Link>
             </li>
             <li className="nav-item">
-                <a className="nav-link" href="/leavemessage">留言</a>
+                <Link className="nav-link" to="/leavemessage">留言</Link>
             </li>
-                <li className="nav-item dropdown">
-                    <a className="nav-link dropdown-toggle" href="javascript：void" id="navbardrop" data-toggle="dropdown">
-                        微小的贡献
-                    </a>
+            <li className="nav-item dropdown">
+                <Link className="nav-link dropdown-toggle" to="javascript：void" id="navbardrop" data-toggle="dropdown">
+                    微小的贡献
+                </Link>
                 <div className="dropdown-menu">
-                    <a className="dropdown-item" href="/fgoap">fgo真好玩</a>
-                    <a className="dropdown-item" href="/yysnav">阴阳师</a>
+                    <Link className="dropdown-item" to="/fgoap">fgo真好玩</Link>
+                    <Link className="dropdown-item" to="/yysnav">阴阳师</Link>
                 </div>
             </li>
             <li className="nav-item">
-                <a className="nav-link" href="javascript：void" onClick={ this.logout.bind(this) }>登出</a>
+                <Link className="nav-link" to="javascript：void" onClick={ this.logout.bind(this) }>登出</Link>
             </li>  
             </Fragment>  
           );
@@ -39,27 +40,37 @@ class Nav extends Component{
             <Fragment>
             <ul className="navbar-nav mr-auto">
               <li className="nav-item dropdown">
-                     <a className="nav-link dropdown-toggle" href="javascript：void" id="navbardrop" data-toggle="dropdown">
+                     <Link className="nav-link dropdown-toggle" to="javascript：void" id="navbardrop" data-toggle="dropdown">
                         微小的贡献
-                    </a>
+                    </Link>
                     <div className="dropdown-menu">
-                        <a className="dropdown-item" href="/fgohd">fgo真好玩</a>
-                        <a className="dropdown-item" href="/yysnav">阴阳师</a>
+                        <Link className="dropdown-item" to="/fgohd">fgo真好玩</Link>
+                        <Link className="dropdown-item" to="/yysnav">阴阳师</Link>
                     </div>
                 </li>   
                 <li className="nav-item">
-                    <a className="nav-link" href="javascript：void" onClick={ this.logout.bind(this) }>登出</a>
+                    <Link className="nav-link" to="javascript：void" onClick={ this.logout.bind(this) }>登出</Link>
                 </li>  
             </ul>
             </Fragment>
           );    
         const nologinLinks = (
             <Fragment>
+            <li className="nav-item dropdown">
+                <Link className="nav-link dropdown-toggle" to="javascript：void" id="navbardrop" data-toggle="dropdown">
+                    微小的贡献
+                </Link>
+                <div className="dropdown-menu">
+                    <Link className="dropdown-item" to="/fgoap">fgo真好玩</Link>
+                    <Link className="dropdown-item" to="/yysnav">阴阳师</Link>
+                </div>
+            </li>
             <li className="nav-item">
-            <a className="nav-link" href="/signin">登录</a>
-            </li>    
+                <Link className="nav-link" to="/signin">登录</Link>
+            </li>
+                
             {/* <li className="nav-item">
-                <a className="nav-link" href="/signup">注册</a>
+                <Link className="nav-link" href="/signup">注册</Link>
             </li>  */}
             </Fragment>
         ) 
@@ -86,7 +97,7 @@ class Nav extends Component{
         const {isAuthenticated,user} =this.props.signin;
         return(
             <div className='navbar navbar-expand-md navbar-dark navid bg-dark '  >
-                <a className="navbar-brand" href="/">永老无别离的个人博客</a>
+                <Link className="navbar-brand" to="/">永老无别离的个人博客</Link>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
                     <span className="navbar-toggler-icon"></span>
                 </button>

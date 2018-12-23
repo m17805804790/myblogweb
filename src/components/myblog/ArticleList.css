@@ -1,0 +1,50 @@
+.articlelistbox{
+    border: 1px solid grey;
+    margin:10px;
+    padding:-5px 10px 0 10px;
+    
+}
+.articlelistbox h2{
+    text-align: center;
+}
+.articlelistbox h2:hover{
+    cursor: pointer;
+}
+.articlelistbox p{
+    text-indent: 20px;
+}
+.articlepagination{
+    display:flex;
+    align-items:center;/*垂直居中*/
+    justify-content: center;/*水平居中*/
+    
+
+}
+.pageup {
+    height: 20px;
+    width: 70px;
+    display: inline-block;
+    border-radius: 5px;
+    background-color: #AAA;
+    text-align: center;
+    line-height: 20px;
+    color: #FFF;
+}
+.pagedown{
+    height: 20px;
+    width: 70px;
+    display: inline-block;
+    border-radius: 5px;
+    background-color: #AAA;
+    text-align: center;
+    line-height: 20px;
+    color: #FFF;
+}
+.pageup:hover{
+    background-color: #444;
+    cursor: pointer;
+}
+.pagedown:hover{
+    background-color: #444;
+    cursor: pointer;
+}

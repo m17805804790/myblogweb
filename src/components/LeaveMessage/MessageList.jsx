@@ -12,7 +12,7 @@ export default class MessageList extends Component{
         render(){
             return(
                 <div>
-
+                    
                 </div>
             )
         }

@@ -1,5 +1,4 @@
 import React, { Component,Fragment} from 'react';
-import {Row,Col} from 'antd';
 import a from './info'
 import ShowList from "./ShowList";
 require('./YysList.css')
@@ -38,12 +37,12 @@ export default class YysList extends Component {
     return (
       <div className="yyscontainer" >
         <ShowList  nowstate={this.state} onClicked={this.onChangeState.bind(this)}/>
-        <Row className ="sh_class" >
-          <Col className="Nborder">{this.get('N')}</Col>
-          <Col className="Rborer">{this.get('R')}</Col>
-          <Col className="SRborder">{this.get('SR')}</Col>
-          <Col className="SSRborder">{this.get('SSR')}</Col>
-        </Row>
+        <div className ="sh_class" >
+          <div className="Nborder">{this.get('N')}</div>
+          <div className="Rborer">{this.get('R')}</div>
+          <div className="SRborder">{this.get('SR')}</div>
+          <div className="SSRborder">{this.get('SSR')}</div>
+        </div>
       </div>
       
     );

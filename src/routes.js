@@ -10,6 +10,9 @@ import Myself from './components/mainpage/Myself';
 import Message from './components/LeaveMessage/Message';
 import Fgoap from './components/fgo/Fgoap';
 import qiYong from './components/qiyong';
+import LeaveMessage from './components/LeaveMessage/LeaveMessage';
+import Article from './components/myblog/Article';
+import ArticleList from './components/myblog/ArticleList';
 export default (
     <div>
         <Route path="/" component={Nav}></Route>
@@ -22,7 +25,9 @@ export default (
         <Route path="/fgoap" component={Fgoap}></Route>
         <Route path="/signin" component={SigninPage}></Route>
         <Route path="/aboutme" component={Myself}></Route>
-        
+        <Route path="/try" component={LeaveMessage}></Route>
+        <Route path="/article/:articleid" component={Article}></Route>
+        <Route path="/articlelist" component={ArticleList}></Route>
         
     </div>
 )

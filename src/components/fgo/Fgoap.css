@@ -1,32 +1,17 @@
 .allcomponent{
-    background-color: black;
-    height: 100rem;
     background-size: 100% 100%;
-    
+    height: calc(100vh - 45px);
     
     
 }
-.hdlist{
-    border-style: solid;
-    border-color: grey;
-    border-width: 1px;
-    color:white;
-}
-.hdlist h2{
+.allcomponent p{
     text-align: center;
-    color:white;
-
+    margin-left:-40px;
 }
-.hdlist h3:hover{
+
+.hdlist p:hover{
     background-color:skyblue;
 }
-.hdlist h3{
-    background-color:white;
-    color:black;
-    text-align: center;
-    
-}
-
 .cailiaolist{
     border-style: solid;
     border-color: rgb(204, 204, 204);
@@ -35,13 +20,6 @@
     padding-bottom: 1rem;
     
 }
-.sucainame{
-   
-    
-    
-    padding:0;
-}
-
 .sucainame p{
     margin:0;
     padding:0;
@@ -50,13 +28,7 @@
     color: #212529;
     text-align: center;
     line-height: 36px;
-    color:white;
-    
-    
-
 }
-
-
 .cx p{
     display: inline-block;
     height: 36px;
@@ -68,7 +40,5 @@
     white-space: nowrap;
     margin-bottom: 1rem;
     margin-left: 1rem;
-    
-
 }
 

@@ -32,12 +32,12 @@
   padding: 8px 20px;
   margin: 8px;
   cursor: pointer;
+  transition-delay: 0.1s;
+  transition-duration: 0.5s;
 }
 .listitem:hover{
     background-color:skyblue;
+    padding:16px 40px;
+    position: relative;
 }
-.sh_class{
-  display: flex;
-  justify-items: center;
-  align-items: center;
-}
+

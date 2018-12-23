@@ -1,8 +1,8 @@
 import React, { Component ,Fragment} from 'react';
-import { Slider,Button,Modal,Col,Row,InputNumber,notification,Select } from 'antd';
+import { Slider,Button,Modal,Col,Row,InputNumber,notification,Menu } from 'antd';
 import  fgosucai from './fgosucai';
 require('./Fgoap.css');
-const Option = Select.Option;
+const SubMenu = Menu.SubMenu;
 export default class Fgoap extends Component{
     constructor(){
         super();
@@ -14,15 +14,7 @@ export default class Fgoap extends Component{
             hdname:'',
             golden:0,
             sliver:0,
-            copper:0,
-            goldenplus:0,
-            sliverplus:0,
-            copperplus:0,
-            goldenbasic:0,
-            sliverbasic:0,
-            copperbasic:0,
-            smode:'',
-           
+            copper:0, 
         }
     }
     
@@ -79,7 +71,6 @@ export default class Fgoap extends Component{
                     </Row>
                 )
             }
-            
         return(
             <Fragment>{items}</Fragment> 
         )
@@ -141,7 +132,7 @@ export default class Fgoap extends Component{
             this.getfinal(nowarr);
         }
     }
-    wxl = (arr) =>{
+    wxl = (arr) =>{           //我咸了
         if(arr.length===0){
             notification.open({
                 message: 'caonima',
@@ -171,9 +162,20 @@ export default class Fgoap extends Component{
         return(
             
             <Row className="allcomponent"> 
-                <Col xs={24} sm={6} className="hdlist">
-                    <h2>活动列表</h2>
-                    <h3 style={{cursor:'pointer'}} onClick={()=>this.setState({sucaiarr:fgosucai,btnability:false})}>万圣三期</h3>
+                <Col xs={24} sm={6} >
+                    {/* <h2>活动列表</h2>
+                    <h3 style={{cursor:'pointer'}} onClick={()=>this.setState({sucaiarr:fgosucai,btnability:false})}>万圣三期</h3> */}
+                        <Menu 
+                            mode="inline"
+                            className="hdlist"
+                        >
+                            <SubMenu key="sub1" title={<span><span>活动列表</span></span>}>
+                                <Menu.Item key="1"><p onClick={()=>this.setState({sucaiarr:fgosucai,btnability:false})}>万圣三期</p></Menu.Item>
+                                <Menu.Item key="2"><p>2</p></Menu.Item>
+                                <Menu.Item key="3"><p>3</p></Menu.Item>
+                                <Menu.Item key="4"><p>4</p></Menu.Item>
+                            </SubMenu>
+                        </Menu>
                     
                 </Col>
                 <Col xs={24} sm={18}className="cailiaolist">
@@ -181,7 +183,6 @@ export default class Fgoap extends Component{
                         <Col span={24}className="cx">
                             <Button className="bt1" type="primary" style={{float:'left'}} disabled={this.state.btnability} onClick={()=>this.wqdy(this.state.sucaiarr)}>我全都要</Button>
                             <Button className="bt2" type="primary" style={{float:'left'}} disabled={this.state.btnability} onClick={()=>this.wxl(this.state.sucaiarr)}>我咸了</Button>
-                            <Button className="bt2" type="primary" style={{float:'left'}} disabled={this.state.btnability} onClick={()=>this.setState({dialogVisiblesz:true})}>设置加成等</Button>
                             <Button className="bt2" type="primary" style={{float:'left'}} disabled={this.state.btnability} onClick={()=>this.showinfo(this.state.sucaiarr)}>查看统计</Button>
                         </Col>
                         <Col span={6}className="sucainame">
@@ -208,29 +209,7 @@ export default class Fgoap extends Component{
                         <p>一共需要{this.state.copper}个铜材料</p>
                         
                     </Modal>
-                    <Modal
-                        title="asd"
-                        size="tiny"
-                        visible={ this.state.dialogVisiblesz }
-                        onCancel={ () => this.setState({ dialogVisiblesz: false }) }
-                        lockScroll={ false }
-                        footer={null}
-                    >
-                        <Select defaultValue="d" style={{ width: '100%' }} onChange={(v)=>this.setState({smode:v})}>
-                            <Option value="a">金银混合+铜</Option>
-                            <Option value="b">金铜混合+银</Option>
-                            <Option value="c">金+铜银混合</Option>
-                            <Option value="d">金+银+铜</Option>
-                        </Select>
-                        <br />
-                        <InputNumber min={0} max={12} defaultValue={1} value={this.state.goldenplus}onChange={(v)=>this.setState({goldenplus:v})} />
-                        <InputNumber min={0} max={12} defaultValue={1} value={this.state.goldenplus}onChange={(v)=>this.setState({goldenplus:v})} />
-                        <InputNumber min={0} max={12} defaultValue={1} value={this.state.goldenplus}onChange={(v)=>this.setState({goldenplus:v})} />
-                        <br />
-                        <InputNumber min={0} max={12} defaultValue={1} value={this.state.goldenbasic}onChange={(v)=>this.setState({goldenbasic:v})} />
-                        <InputNumber min={0} max={12} defaultValue={1} value={this.state.goldenbasic}onChange={(v)=>this.setState({goldenbasic:v})} />
-                        <InputNumber min={0} max={12} defaultValue={1} value={this.state.goldenbasic}onChange={(v)=>this.setState({goldenbasic:v})} />
-                    </Modal>
+                    
             </Row> 
         )
     }
