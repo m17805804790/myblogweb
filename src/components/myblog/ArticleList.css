@@ -1,3 +1,6 @@
+.articleplace{
+    height: calc(100vh-45px);
+}
 .articlelistbox{
     border: 1px solid grey;
     margin:10px;

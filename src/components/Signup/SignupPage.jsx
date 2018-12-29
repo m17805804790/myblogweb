@@ -1,23 +1,22 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import SignupForm from './SignupForm';
+import {Row,Col} from 'antd';
 import { userSignupRequest } from '../../actions/SignupActions';
-import { addFlashMessage } from '../../actions/FlashMessages'
 class SignupPage extends Component{
     render(){
-        const {userSignupRequest,addFlashMessage} = this.props;
+        const {userSignupRequest} = this.props;
         return(
-            <div className="row">
-                <div className="col-md-3"></div>
-                <div className="col-md-6">
+            <Row>
+                <Col md={6} ></Col>
+                <Col md={12}>
                     <SignupForm 
                         userSignupRequest={ userSignupRequest } 
-                        addFlashMessage={ addFlashMessage }
                     />
-                </div>
-                <div className="col-md-3"></div>
-            </div>
+                </Col>
+                <Col md={6}></Col>
+            </Row>
         )
     }
 }
-export default connect(null, { userSignupRequest,addFlashMessage })(SignupPage);
+export default connect(null, {userSignupRequest})(SignupPage);

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Row,Col,Menu} from 'antd';
+import {Row,Col,Menu,Input} from 'antd';
 import { Link } from 'react-router-dom';
 // import Axios from 'axios';
 
@@ -35,14 +35,14 @@ class Message extends Component{
         
         return currentdate;
     }      //获得当前时间 格式为  2018-11-28 20:11:1
-    getmessagelist(){
-       Axios.post('/api/getmessages').then(
-           (response) =>{
-               console.log(response.data)
-           }
+    // getmessagelist(){
+    //    Axios.post('/api/getmessages').then(
+    //        (response) =>{
+    //            console.log(response.data)
+    //        }
 
-       )
-    }
+    //    )
+    // }
     render(){
         return(
             <div className="articlecontainer">

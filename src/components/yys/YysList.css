@@ -1,4 +1,4 @@
-.Nborder{
+/* .Nborder{
   margin:5px;
   border:1px solid grey;
   border-radius: 10px;
@@ -17,10 +17,22 @@
   margin:5px;
   border:1px solid gold;
   border-radius: 10px;
-}
+} */
 
 .yyscontainer{
     height: calc(100vh - 45px);
+}
+.SSRborder div{
+  border-color: gold;
+}
+.SRborder div{
+  border-color: purple;
+}
+.Rborer div{
+  border-color:skyblue;
+}
+.Nborder div{
+  border-color: grey;
 }
 .listitem{
   border: 1px solid #ccc;

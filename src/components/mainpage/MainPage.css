@@ -15,11 +15,6 @@ html {
         background-size: 100%;
     }
     .picture{
-        /* border-radius: 15px;
-        border-width: 1px;
-        border-style: solid;
-        border-color: rgb(204, 204, 204); */  /*万能看div的边框*/
-        
         width:auto;
         display: inline-block;
         width:40%;
@@ -33,10 +28,6 @@ html {
         
     }
     .picturewords{
-        /* border-radius: 15px;
-        border-width: 1px;
-        border-style: solid;
-        border-color: rgb(204, 204, 204); */
         width:auto;
         display: inline-block;
         width:40%;
@@ -77,10 +68,6 @@ html {
         
     }
     .picturewords{
-        /* border-radius: 15px;
-        border-width: 1px;
-        border-style: solid;
-        border-color: rgb(204, 204, 204); */
         width:auto;
         display: inline-block;
         width:40%;

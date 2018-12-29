@@ -10,10 +10,10 @@ export default class ArticleList extends Component{
     }
 
     showArticleList(){
-
+        
     }
     toArticlePage(){
-        this.props.history.push('')
+        
     }
 
     render(){
@@ -21,7 +21,7 @@ export default class ArticleList extends Component{
             <div>
                 <Row>
                     <Col className="articleaside" xs={0} sm={4} md={5}></Col>
-                    <Col xs={24}sm={16} md={14}>
+                    <Col className="articleplace"xs={24}sm={16} md={14}>
                         <div className="articlelistbox">
                             <h2>React Router 中文文档（一）</h2>
                             <p>所有位置的基准 URL。如果你的应用程序部署在服务器的子目录，则需要将其设置为子目录。basename 的正确格式是前面有一个前导斜杠，但不能有尾部斜杠。如果为 true ，在导航的过程中整个页面将会刷新。一般情况下，只有在不支持 HTML5 history API 的浏览器中使用此功能。</p>
