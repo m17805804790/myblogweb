@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-require('./MainPage.css');
+import('./MainPage.less');
 export default class MainPage extends Component{
 
     render(){

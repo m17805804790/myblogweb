@@ -1,0 +1,74 @@
+
+.articleplace{
+    height: 100%;
+    background-color: lightgrey;
+    display: flex;
+    flex-direction: column;
+}
+.articlelistbox{
+    background-color:white;
+    border: 1px solid grey;
+    margin:10px;
+    padding:-5px 10px 0 10px;
+    overflow:hidden;
+    
+}
+
+.articlelistbox h2{
+    padding:2px;
+    text-align: center;
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+.articlelistbox p{
+    padding:2px;
+    text-indent: 22px;
+}
+
+
+
+
+
+
+
+
+    
+.articlepagination{
+    display:flex;
+    align-items:center;/*垂直居中*/
+    justify-content: center;/*水平居中*/
+    
+}
+.pagenum{
+    height: 20px;
+    width: 70px;
+    display: inline-block;
+    border-radius: 5px;
+    background-color: #AAA;
+    text-align: center;
+    line-height: 20px;
+    color: #FFF;
+}
+.pageup{
+    .pagenum;
+    &:hover{
+        background-color: #444;
+        cursor: pointer;
+    };
+}
+.pagedown{
+    .pagenum;
+    &:hover{
+        background-color: #444;
+        cursor: pointer;
+    };
+}
+
+
+.showpagenum{
+    .pagenum;
+    border:solid 1px grey;
+    margin-left: 5px;
+}

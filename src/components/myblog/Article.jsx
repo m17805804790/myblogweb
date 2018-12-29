@@ -3,7 +3,7 @@ import {Row, Col} from 'antd';
 import axios from 'axios';
 import marked from 'marked';
 import hljs from 'highlight.js';
-require('./Article.css');
+import('./Article.css');
 
 export default class Article extends Component{
     constructor(){

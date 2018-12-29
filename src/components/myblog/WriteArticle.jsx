@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import {Row, Col,Input,Button,notification} from 'antd';
 import {connect} from 'react-redux';
 import axios from 'axios';
-import ReactMarkdown from 'react-markdown';
 
 const {TextArea} =Input;
 
