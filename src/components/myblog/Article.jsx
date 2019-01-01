@@ -1,18 +1,21 @@
-import React, { Component } from 'react'
-import {Row, Col} from 'antd';
+import React, { Component,Fragment } from 'react'
+import {Row, Col, Button,Modal,message} from 'antd';
 import axios from 'axios';
 import marked from 'marked';
 import hljs from 'highlight.js';
-import('./Article.css');
+import {connect} from 'react-redux';
+import('./Article.less');
 
-export default class Article extends Component{
+class Article extends Component{
     constructor(){
         super()
         this.state={
             articlename:'',
             article:'',
             author:'',
-            date:''
+            date:'',
+            simple:'',
+            visible:false
         }
     }
     componentWillMount() {
@@ -21,14 +24,18 @@ export default class Article extends Component{
             renderer: rendererMD,
             gfm: true,
             tables: true,
-            breaks: false,
+            breaks: true    ,
             pedantic: false,
             sanitize: false,
             smartLists: true,
             smartypants: false,
-            highlight: function (code) {
-            return hljs.highlightAuto(code).value;}
+            
+            
         });
+        marked.setOptions({
+            highlight: code=> {
+                return hljs.highlightAuto(code).value;}
+        })
     }
     componentDidMount(){
         let testreg = /<script[^>]*>(?:.*?)<\/script>/;
@@ -38,19 +45,61 @@ export default class Article extends Component{
             if(this.props.match.params.articlename){
                 axios.post('/api/article/getarticle',{articlename:this.props.match.params.articlename}).then(
                     (res) =>{
-                        const {articlename,article,author,date} = res.data[0];
+                        const {articlename,article,author,date,simple} = res.data[0];
                         this.setState({
                             articlename,
-                            article,
+                            article:this.b64DecodeUnicode(article),
                             author,
-                            date
+                            date,
+                            simple
                         })
                     }
                 )
             }  
         }
     }
+    b64EncodeUnicode(str) {
+        return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, function(match, p1) {
+            return String.fromCharCode('0x' + p1);
+        }));
+    }
+    b64DecodeUnicode(str) {
+        return decodeURIComponent(atob(str).split('').map(function(c) {
+            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+        }).join(''));
+    }
     
+    
+    pushtoedit = () =>{
+        this.props.history.push(`/editarticle/${this.state.articlename}/${this.state.simple}`)
+    }
+    showdeleteModal = () => {
+        this.setState({
+          visible: true,
+        });
+    }
+    showeditbutton(props){
+        if(props.permission==='admin'){
+            return <Fragment><Button onClick={this.pushtoedit}style={{width:'100%',marginTop:'100px'}}>好像有问题让我康康</Button>
+            <Button onClick={this.showdeleteModal}style={{width:'100%'}}>这什么鬼玩意我删了</Button></Fragment>
+        }
+    }
+    handleOk = (e) => {
+        axios.post('/api/article/articledelete',{articlename:this.state.articlename}).then(
+            res=>{
+                if(res.data==='success'){
+                    message.info('删除成功')
+                    this.props.history.push('/articlelist')
+                }
+            }
+        )
+    }
+    
+    handleCancel = (e) => {
+        this.setState({
+          visible: false,
+        });
+    }
    
 
 
@@ -58,18 +107,33 @@ export default class Article extends Component{
     render(){
         return(
             
-            <div className="articlepage">
+            
                 <Row>
                     <Col className="articleaside" xs={0} sm={4} md={5}></Col>
-                    <Col className="articleplace"xs={24}sm={16} md={14}>
+                    <Col className="article"xs={24} sm={16} md={14}>
                         <h1 style={{textAlign:'center',paddingTop:'10px'}}>{this.state.articlename}</h1>
-                        <h6 style={{textAlign:'center'}}>{this.state.author} {this.state.date}</h6>
-                        <div dangerouslySetInnerHTML={{__html:marked(this.state.article)}}></div>
-                    
+                        <h6 style={{textAlign:'center'}}>最后编辑时间：{this.state.date}</h6>
+                        <div className="articleplace"dangerouslySetInnerHTML={{__html:marked(this.state.article)}}></div>
+                        {this.showeditbutton(this.props)}
                     </Col>
                     <Col className="articleaside" xs={0} sm={4} md={5}></Col>
+                    <Modal
+                    title="警告"
+                    visible={this.state.visible}
+                    onOk={this.handleOk}
+                    onCancel={this.handleCancel}
+                    >
+                    <p>确定要删除嘛</p>
+                    
+                    </Modal>
                 </Row>
-            </div>
+            
         )
     }
 }
+const mapStateToProps = (state)=>{
+    return {
+        permission: state.login.permission
+      };
+}
+export default connect(mapStateToProps)(Article);

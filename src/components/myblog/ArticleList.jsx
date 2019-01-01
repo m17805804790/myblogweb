@@ -1,20 +1,52 @@
-import React, { Component } from 'react';
-import {Row, Col} from 'antd';
+import React, { Component,Fragment } from 'react';
+import {Row, Col,Divider} from 'antd';
+import axios from 'axios';
+import ArticleListBox from './ArticleListBox';
 import('./ArticleList.less');
+
+
+
+
+
+
 export default class ArticleList extends Component{
     constructor(){
         super();
         this.state={
             pagenum:1,
-            maxpagenum:10
+            maxpagenum:1,
+            articlelist:[],
+            
         }
+        
     }
     componentDidMount(){
-        
+        axios.post('/api/article/getarticlelist').then(
+            (res)=>{
+                this.setState({
+                    articlelist:res.data,
+                    maxpagenum:Math.ceil(res.data.length/10)
+                })
+            }
+        )
     }
 
-    showArticleList(){
-        
+    showArticleList(arr,pageindex,num){
+        let items=[];
+        if(arr.length!==0){
+            if(arr.length<=num){
+                for(let i=arr.length-1;i>=0;i--){
+                    items.push(<ArticleListBox arr={arr[i]}key={i}/>)
+                }
+            }else{
+                for(let j=arr.length-(pageindex-1)*num-1;j>=arr.length-pageindex*num&&j>=0;j--){
+                    items.push(<ArticleListBox arr={arr[j]}key={j}/>)
+                }
+            }
+            
+            
+        }
+        return <Fragment>{items}</Fragment>
     }
     pageup = ()=>{
         if(this.state.pagenum>1){
@@ -30,45 +62,28 @@ export default class ArticleList extends Component{
             })
         }
     }
-
+    articlepagination(maxpagenum){
+        if(maxpagenum>1){
+            return <div className="articlepagination">
+                        <div className="pageup"onClick={this.pageup}>上一页</div>
+                        <div className="pagedown"onClick={this.pagedown}>下一页</div>
+                        <div className="showpagenum">{this.state.pagenum}/{this.state.maxpagenum}</div>
+                    </div>
+        }
+    }
     render(){
         return(
-            <div>
-                <Row className='art'>
-                    <Col className="articleaside" xs={0} sm={4} md={5}></Col>
-                    <Col className="articleplace"xs={24}sm={16} md={14}>
-                        <div className="articlelistbox">
-                            <h2>React Router 中文文档（一）</h2>
-                            <p>所有位置的基准 URL。如果你的应用程序部署在服务器的子目录，则需要将其设置为子目录。basename 的正确格式是前面有一个前导斜杠，但不能有尾部斜杠。如果为 true ，在导航的过程中整个页面将会刷新。一般情况下，只有在不支持 HTML5 history API 的浏览器中使用此功能。</p>
-                        </div>
-                        <div className="articlelistbox">
-                            <h2>React Router 中文文档（一）</h2>
-                            <p>所有位置的基准 URL。如果你的应用程序部署在服务器的子目录，则需要将其设置为子目录。basename 的正确格式是前面有一个前导斜杠，但不能有尾部斜杠。如果为 true ，在导航的过程中整个页面将会刷新。一般情况下，只有在不支持 HTML5 history API 的浏览器中使用此功能。</p>
-                        </div><div className="articlelistbox">
-                            <h2>React Router 中文文档（一）</h2>
-                            <p>所有位置的基准 URL。如果你的应用程序部署在服务器的子目录，则需要将其设置为子目录。basename 的正确格式是前面有一个前导斜杠，但不能有尾部斜杠。如果为 true ，在导航的过程中整个页面将会刷新。一般情况下，只有在不支持 HTML5 history API 的浏览器中使用此功能。</p>
-                        </div><div className="articlelistbox">
-                            <h2>React Router 中文文档（一）</h2>
-                            <p>所有位置的基准 URL。如果你的应用程序部署在服务器的子目录，则需要将其设置为子目录。basename 的正确格式是前面有一个前导斜杠，但不能有尾部斜杠。如果为 true ，在导航的过程中整个页面将会刷新。一般情况下，只有在不支持HTML5 history API的浏览器中使用此功能。</p>
-                        </div>
-                        <div className="articlelistbox">
-                            <h2>React Router 中文文档（一）</h2>
-                            <p>所有位置的基准 URL。如果你的应用程序部署在服务器的子目录，则需要将其设置为子目录。basename 的正确格式是前面有一个前导斜杠，但不能有尾部斜杠。如果为 true ，在导航的过程中整个页面将会刷新。一般情况下，只有在不支持 HTML5 history API 的浏览器中使用此功能。</p>
-                        </div>
-                       
-                        
-                        
-                        
-                        
-                        <div className="articlepagination">
-                            <div className="pageup"onClick={this.pageup}>上一页</div>
-                            <div className="pagedown"onClick={this.pagedown}>下一页</div>
-                            <div className="showpagenum">{this.state.pagenum}/10</div>
-                        </div>
-                    </Col>
-                    <Col className="articleaside" xs={0} sm={4} md={5}></Col>
-                </Row>
-            </div>
+            
+            <Row>
+                <Col xs={0} sm={4} md={5}></Col>
+                <Col xs={24}sm={16} md={14}>
+                    {this.showArticleList(this.state.articlelist,this.state.pagenum,10)}    
+                    <Divider/>                             
+                    {this.articlepagination(this.state.maxpagenum)}
+                </Col>
+                <Col xs={0} sm={4} md={5}></Col>
+            </Row>
+            
         )
     }
 }

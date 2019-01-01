@@ -1,7 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import {Row, Col,Input,Button,notification} from 'antd';
-import {connect} from 'react-redux';
-import axios from 'axios';
+import axios from 'axios'
 
 const {TextArea} =Input;
 
@@ -10,54 +9,34 @@ const {TextArea} =Input;
 
 
 
-class WriteArticle extends Component {
+export default class EditArticle extends Component{
+
     constructor(){
-        super()
+        super();
         this.state={
+            oldarticlename:'',
             articlename:'',
-            article:'',
-            simple:''
+            simple:'',
+            article:''
+           
         }
     }
-    opensame(){
-        notification.open({
-            message: '失败',
-            description: '存在相同的文章名',
-            
-          });
-    }
-    opensuccess(){
-        notification.open({
-            message: '写完啦',
-            description: '成功',
-            
-          });
-    }
-    openfailure(){
-        notification.open({
-            message: '快去改bug',
-            description: '失败',
-            
-          });
-    }
-    articlesave = (state) =>{
-        axios.post('/api/article/articlesave',{articlename:this.state.articlename,article:this.b64EncodeUnicode(this.state.article),simple:this.state.simple,date:this.getlocaltime(),author:this.props.username}).then(
-            (res) =>{
-                if(res.data==='success'){
-                    this.opensuccess();
-                    this.props.history.push(`/article/${state.articlename}`)
-                }else if(res.data==='存在相同的文章名'){    
-                    this.opensame();
-                }else{
-                    this.openfailure();
-                }
+
+
+
+
+    componentDidMount(){
+        axios.post('/api/article/getarticle',{articlename:this.props.match.params.articlename}).then(
+            res=>{
+                let article =this.b64DecodeUnicode(res.data[0].article)
+                this.setState({
+                    oldarticlename:this.props.match.params.articlename,
+                    articlename:this.props.match.params.articlename,
+                    simple:this.props.match.params.simple,
+                    article
+                })
             }
         )
-    }
-    textChange =(e)=>{
-        this.setState({
-            [e.target.name]:e.target.value
-        })
     }
     getlocaltime(){
         let date = new Date();
@@ -76,6 +55,19 @@ class WriteArticle extends Component {
                 + seperator2 + date.getSeconds();
         return currentdate;
     }
+    textChange =(e)=>{
+        this.setState({
+            [e.target.name]:e.target.value
+        })
+    }
+    articleupdate = () =>{
+        let article = this.b64EncodeUnicode(this.state.article);
+        axios.post('/api/article/articleupdate',{articlename:this.state.articlename,article,oldarticlename:this.state.oldarticlename,simple:this.state.simple,date:this.getlocaltime()}).then(
+            res=>{
+                this.props.history.push('/articlelist')
+            }   
+        )
+    }
     b64EncodeUnicode(str) {
         return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, function(match, p1) {
             return String.fromCharCode('0x' + p1);
@@ -86,12 +78,13 @@ class WriteArticle extends Component {
             return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
         }).join(''));
     }
+
     render(){
         return(
-            <div>
-                <Row>
-                    <Col className="articleaside" xs={0} sm={4} md={5}></Col>
-                    <Col className="articleplace"xs={24}sm={16} md={14}>
+            <Row>
+                <Col xs={0} sm={4} md={5}></Col>
+                <Col xs={24}sm={16} md={14}>
+                {console.log(this.state)}
                         <Input 
                             name='articlename'
                             placeholder="文章标题" 
@@ -102,33 +95,26 @@ class WriteArticle extends Component {
                             name='simple'
                             placeholder="简介" 
                             autosize
-                            value={this.state.simple} 
+                            value={this.state.simple}
                             onChange={this.textChange}
                         />
                         <TextArea 
                             name='article'
                             placeholder="内容" 
                             autosize
-                            value={this.state.article} 
+                            value={this.state.article}
                             onChange={this.textChange}
                         />
                         <Button
                             type="primary"
-                            onClick={()=>this.articlesave(this.state)}
+                            onClick={this.articleupdate}
                         >
                         点击发布
                         </Button>
-                    </Col>
-                    <Col className="articleaside" xs={0} sm={4} md={5}>
-                    </Col>
-                </Row>
-            </div>
+                </Col>
+                <Col xs={0} sm={4} md={5}></Col>
+            </Row>
         )
     }
+
 }
-const mapStateToProps = (state) =>{
-    return{
-        username:state.login.username
-    }
-}
-export default connect(mapStateToProps)(WriteArticle);

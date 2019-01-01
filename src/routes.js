@@ -14,6 +14,7 @@ import LeaveMessage from './components/LeaveMessage/LeaveMessage';
 import Article from './components/myblog/Article';
 import ArticleList from './components/myblog/ArticleList';
 import WriteArticle from './components/myblog/WriteArticle';
+import EditArticle from './components/myblog/EditArticle';
 export default (
     <div>
         <Route path="/" component={Nav}></Route>
@@ -30,5 +31,6 @@ export default (
         <Route path="/article/:articlename" component={Article}></Route>
         <Route path="/articlelist" component={ArticleList}></Route>
         <Route path="/writearticle" component={WriteArticle}></Route>
+        <Route path="/editarticle/:articlename/:simple" component={EditArticle}></Route>
     </div>
 )

@@ -27,6 +27,6 @@ export const logout = () => {
 }
 export const login = (userData) => {
   return dispatch => {
-     return axios.post('/api/signin', userData)
+     return axios.post('/api/login', userData)
   }
 };
