@@ -26,29 +26,33 @@ class Nav extends Component{
             <Menu.Item key="mainpage">
                 <Link to="/">永老无别离</Link>
             </Menu.Item>
-            <Menu.Item key="myblog">
+            <Menu.Item key="articlelist">
                 <Link to="/articlelist">我的日志</Link>
             </Menu.Item>
-            <Menu.Item key="writeblog">
+            <Menu.Item key="writearticle">
                 <Link to="/writearticle">写日志</Link>
             </Menu.Item>
-            <Menu.Item key="message">
-                <Link to="/leavemessage">留言</Link>
-            </Menu.Item>
-            <SubMenu title={<span className="submenu-title-wrapper">一点微小的贡献</span>}>
-            <MenuItemGroup title="Fgo">
-                <Menu.Item key="fgo">
-                    <Link to="/fgoap">fgo真好玩</Link>
-                </Menu.Item>
-            </MenuItemGroup>
-            <MenuItemGroup title="阴阳师">
-                <Menu.Item key="yys">
-                    <Link to="/yysnav">阴阳师</Link>
-                </Menu.Item>
-                
-            </MenuItemGroup>
+            <SubMenu title={<span className="submenu-title-wrapper">留言</span>}>
+                <MenuItemGroup>
+                    <Menu.Item key="leavemessage">
+                        <Link to="/messagelist/leavemessage">我想留言</Link>
+                    </Menu.Item>
+                </MenuItemGroup>
             </SubMenu>
-            <Menu.Item key="alipay">
+            <SubMenu title={<span className="submenu-title-wrapper">一点微小的贡献</span>}>
+                <MenuItemGroup>    
+                    <Menu.Item key="fgoap">
+                        <Link to="/fgoap">fgo真好玩</Link>
+                    </Menu.Item>
+                </MenuItemGroup>
+                <MenuItemGroup>
+                    <Menu.Item key="yys">
+                        <Link to="/yysnav">阴阳师</Link>
+                    </Menu.Item>
+                    
+                </MenuItemGroup>
+            </SubMenu>
+            <Menu.Item key="logout">
                 <Link to="javascript：void" onClick={ this.logout.bind(this) }>登出</Link>          
             </Menu.Item>   
             </Menu>      
@@ -60,15 +64,15 @@ class Nav extends Component{
             <Menu.Item key="mainpage">
                 <Link to="/">永老无别离</Link>
             </Menu.Item>
-            <Menu.Item key="myblog">
+            <Menu.Item key="articlelist">
                 <Link to="/articlelist">我的日志</Link>
             </Menu.Item>
-            <Menu.Item key="message">
-                <Link to="/leavemessage">留言</Link>
+            <Menu.Item key="messagelist">
+                <Link to="/messagelist">留言</Link>
             </Menu.Item>
             <SubMenu title={<span className="submenu-title-wrapper">一点微小的贡献</span>}>
             <MenuItemGroup title="Fgo">
-                <Menu.Item key="fgo">
+                <Menu.Item key="fgoap">
                     <Link to="/fgoap">fgo真好玩</Link>
                 </Menu.Item>
             </MenuItemGroup>
@@ -79,7 +83,7 @@ class Nav extends Component{
                 
             </MenuItemGroup>
             </SubMenu>
-            <Menu.Item key="alipay">
+            <Menu.Item key="logout">
                 <Link to="javascript：void" onClick={ this.logout.bind(this) }>登出</Link>          
             </Menu.Item>   
             </Menu>      
@@ -93,7 +97,7 @@ class Nav extends Component{
             </Menu.Item>
             <SubMenu title={<span className="submenu-title-wrapper">一点微小的贡献</span>}>
             <MenuItemGroup title="Fgo">
-                <Menu.Item key="fgo">
+                <Menu.Item key="fgoap">
                     <Link to="/fgoap">fgo真好玩</Link>
                 </Menu.Item>
             </MenuItemGroup>
@@ -104,7 +108,7 @@ class Nav extends Component{
                 
             </MenuItemGroup>
             </SubMenu>
-            <Menu.Item key="alipay">
+            <Menu.Item key="login">
                 <Link to="/login">登录</Link>          
             </Menu.Item>   
             </Menu>      
@@ -113,11 +117,10 @@ class Nav extends Component{
         if(isAuthenticated===true){
             if(permission==='admin'){
                 return admin
-            }else if(permission==='guest'){
+            }else{
                 return guest
             }
         }else{
-            
             return nologin
         }
         

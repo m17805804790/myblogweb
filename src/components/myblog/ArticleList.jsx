@@ -36,7 +36,7 @@ export default class ArticleList extends Component{
         if(arr.length!==0){
             if(arr.length<=num){
                 for(let i=arr.length-1;i>=0;i--){
-                    items.push(<ArticleListBox arr={arr[i]}key={i}/>)
+                    items.push(<ArticleListBox arr={arr[i]} key={i} index={i}/>)
                 }
             }else{
                 for(let j=arr.length-(pageindex-1)*num-1;j>=arr.length-pageindex*num&&j>=0;j--){

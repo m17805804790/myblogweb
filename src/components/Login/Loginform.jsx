@@ -53,8 +53,6 @@ class SigninForm extends Component{
                 }else{
                     this.openerror();
                     this.protectmyserver();
-                    // this.props.history.push('/login');
-                    
                 }
                 
             },

@@ -1,50 +1,65 @@
-import React, { Component } from 'react';
-import {Button,Input} from 'antd';
-require('./LeaveMessage.css')
-const { TextArea } = Input;
-export default class LeaveMessage extends Component{
+import React from 'react';
+import {Input,Modal,message} from 'antd';
+import MyBlog from '../myblog/Myblog';
+import axios from 'axios';
+import {connect} from 'react-redux';
+import ('./LeaveMessage.css')
+class LeaveMessage extends MyBlog{
     constructor(){
         super();
         this.state={
             message:'',
-            btndisable:false,
-            
+            isover35:false,
+            modalvisible:true,
         }
     }
-    
-    onChange(value) {
+    textChange =(e)=>{
         this.setState({
-            message:value,
+            [e.target.name]:e.target.value
         })
-        
     }
-    f(){
-        console.log('asd')
+    handleCancel = ()=>{
+        this.props.history.push('/messagelist')
     }
-    submitmessage(){
-        
-        if(this.state.message===''){
-            setTimeout(
-                this.setState({btndisable:true}),100000
+    handleOk = (state)=>{
+        if(!sessionStorage.messagenum){
+            axios.post('/api/message/addnewmessage',{...state,date:this.getlocaltime(),messageauthor:this.props.username}).then(
+                res=>{
+                    sessionStorage.setItem('messagenum',1);
+                    
+                }
+    
             )
-            
-            
+        }else{
+            message.info('太快了，喝杯茶休息一下')
         }
         
-        
     }
-    
-    render(){
-        
+    render(){  
         return(
             <div>
-                <TextArea 
-                    placeholder="Autosize height based on content lines"
-                    autosize
-                    onChange={()=>this.onChange()} 
+                <Modal
+                    cancelText="取消"
+                    okText="留言"
+                    closable={false}
+                    title="写下你的留言吧"
+                    visible={this.state.modalvisible}
+                    onOk={()=>this.handleOk(this.state)}
+                    onCancel={this.handleCancel}
+                    >
+                 <Input 
+                    name='message'
+                    placeholder="输入你的留言"
+                    onChange={this.textChange} 
                 />
-                <Button type="primary" onClick={()=>this.submitmessage()} disabled={this.state.btndisable}>asdasd</Button>
+                </Modal>
             </div>
         )
     }
 }
+const mapStateToProps = (state)=>{
+    return{
+        username:state.login.username
+    }
+}
+export default connect(mapStateToProps)(LeaveMessage);

@@ -1,0 +1,66 @@
+@lb : lightblue;
+@lg : lightgreen;
+@ly : lightyellow;
+@media screen and (min-width:576px){
+    .neirong p{
+        text-indent: 20px;
+        line-height: 25px;
+        word-break: break-all;
+        white-space: break-word;
+        overflow:hidden;
+        padding: 0 20px ;
+    }
+    .messageinfo{
+        height:100%;
+        background-color: @lb;
+    } 
+}
+@media screen and (max-width:575px){
+    .messageinfo{
+        display: none;
+    }
+    .neirong p{
+        text-indent: 20px;
+        line-height: 25px;
+        word-break: break-all;
+        white-space: break-word;
+        overflow:hidden;
+        padding: 0 20px ;
+    }
+}
+.message-common{
+    margin-top: 10px;
+    width: 100%;
+    height:50px;
+    border-style: solid;
+    border-radius: 0 15px 15px 0;
+    border-width: 1px;
+}
+.message-lightblue{
+    .message-common;
+    border-color:@lb;
+    
+}
+.message-lightgreen{
+    .message-common;
+    border-color:@lg;
+   
+}
+.message-lightyellow{
+    .message-common;
+    border-color: @ly;
+    
+}
+.shijianzuozhecommon{
+    text-align: center;
+    line-height: 25px;
+}
+.shijian{
+    .shijianzuozhecommon;
+}
+.zuozhe{
+    .shijianzuozhecommon;
+}
+
+
+

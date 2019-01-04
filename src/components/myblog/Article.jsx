@@ -1,12 +1,13 @@
-import React, { Component,Fragment } from 'react'
+import React, { Fragment } from 'react'
 import {Row, Col, Button,Modal,message} from 'antd';
 import axios from 'axios';
 import marked from 'marked';
 import hljs from 'highlight.js';
 import {connect} from 'react-redux';
+import MyBlog from './Myblog'
 import('./Article.less');
 
-class Article extends Component{
+class Article extends MyBlog{
     constructor(){
         super()
         this.state={
@@ -58,18 +59,6 @@ class Article extends Component{
             }  
         }
     }
-    b64EncodeUnicode(str) {
-        return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, function(match, p1) {
-            return String.fromCharCode('0x' + p1);
-        }));
-    }
-    b64DecodeUnicode(str) {
-        return decodeURIComponent(atob(str).split('').map(function(c) {
-            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-        }).join(''));
-    }
-    
-    
     pushtoedit = () =>{
         this.props.history.push(`/editarticle/${this.state.articlename}/${this.state.simple}`)
     }
@@ -122,8 +111,11 @@ class Article extends Component{
                     visible={this.state.visible}
                     onOk={this.handleOk}
                     onCancel={this.handleCancel}
+                    confirmLoading={true}
+                    closable={false}
                     >
                     <p>确定要删除嘛</p>
+                    <p>数据库没备份的哦</p>
                     
                     </Modal>
                 </Row>
