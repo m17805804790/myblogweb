@@ -32,13 +32,9 @@ class Nav extends Component{
             <Menu.Item key="writearticle">
                 <Link to="/writearticle">写日志</Link>
             </Menu.Item>
-            <SubMenu title={<span className="submenu-title-wrapper">留言</span>}>
-                <MenuItemGroup>
-                    <Menu.Item key="leavemessage">
-                        <Link to="/messagelist/leavemessage">我想留言</Link>
-                    </Menu.Item>
-                </MenuItemGroup>
-            </SubMenu>
+            <Menu.Item key="messagelist">
+                <Link to="/messagelist">留言</Link>
+            </Menu.Item>
             <SubMenu title={<span className="submenu-title-wrapper">一点微小的贡献</span>}>
                 <MenuItemGroup>    
                     <Menu.Item key="fgoap">

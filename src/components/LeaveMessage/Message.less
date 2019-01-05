@@ -1,10 +1,10 @@
 @lb : lightblue;
 @lg : lightgreen;
-@ly : lightyellow;
-@media screen and (min-width:576px){
+@ly : lightpink;
+@media screen and (min-width:700px){
     .neirong p{
         text-indent: 20px;
-        line-height: 25px;
+        line-height: 50px;
         word-break: break-all;
         white-space: break-word;
         overflow:hidden;
@@ -12,16 +12,15 @@
     }
     .messageinfo{
         height:100%;
-        background-color: @lb;
     } 
 }
-@media screen and (max-width:575px){
+@media screen and (max-width:699px){
     .messageinfo{
         display: none;
     }
     .neirong p{
-        text-indent: 20px;
-        line-height: 25px;
+        text-indent: 5px;
+        line-height: 50px;
         word-break: break-all;
         white-space: break-word;
         overflow:hidden;
@@ -39,27 +38,28 @@
 .message-lightblue{
     .message-common;
     border-color:@lb;
+    .messageinfo{
+        background-color: @lb;
+    }
     
 }
 .message-lightgreen{
     .message-common;
     border-color:@lg;
-   
+    .messageinfo{
+        background-color: @lg;
+    }
 }
 .message-lightyellow{
     .message-common;
     border-color: @ly;
-    
-}
-.shijianzuozhecommon{
-    text-align: center;
-    line-height: 25px;
-}
-.shijian{
-    .shijianzuozhecommon;
+    .messageinfo{
+        background-color: @ly;
+    }
 }
 .zuozhe{
-    .shijianzuozhecommon;
+    text-align: center;
+    line-height: 50px;
 }
 
 

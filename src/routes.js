@@ -9,7 +9,6 @@ import LoginPage from './components/Login/LoginPage';
 import MessageList from './components/LeaveMessage/MessageList';
 import Fgoap from './components/fgo/Fgoap';
 import qiYong from './components/qiyong';
-import LeaveMessage from './components/LeaveMessage/LeaveMessage';
 import Article from './components/myblog/Article';
 import ArticleList from './components/myblog/ArticleList';
 import WriteArticle from './components/myblog/WriteArticle';
@@ -23,7 +22,6 @@ export default (
         <Route path="/login" component={LoginPage}></Route>
         <Route exact path="/"  component={MainPage}/>
         <Route path="/messagelist" component={MessageList}></Route>
-        <Route path="/messagelist/leavemessage" component={LeaveMessage}></Route>
         <Route path="/yysnav" component={YysNav}></Route>
         <Route path="/yyslist" component={YysList}></Route>
         <Route path="/fgoap" component={Fgoap}></Route>
