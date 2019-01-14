@@ -17,7 +17,6 @@ export default class Fgoap extends Component{
             copper:0, 
         }
     }
-    
     showinfo=(arr)=>{
         if(arr.length===0){
             notification.open({

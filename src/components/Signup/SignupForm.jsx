@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import {Row,Col,message,Input} from 'antd';
 import classnames from 'classnames';
 import { withRouter } from 'react-router-dom';
 class SignupForm extends Component{
@@ -22,10 +23,7 @@ onSubmit = (e) => {
     this.setState({ errors: {}, isLoading: true });
     this.props.userSignupRequest(this.state).then(
       () => {
-        this.props.addFlashMessage({
-            type: "success",
-            text: "You signed up successfully. welcome"
-         })
+        message.success('success')
           this.props.history.push('/');
       },
       ({ response }) => { this.setState({ errors: response.data, isLoading: false }) }
@@ -33,69 +31,13 @@ onSubmit = (e) => {
 }
 
     render(){
-        const { errors } = this.state;
+      
         return(
-           <form onSubmit={this.onSubmit}>
-               <h1>本站暂时不开放注册</h1>
-               <div className="form-group">
-                <label className="control-label">Username</label>
-                <input
-                    value={ this.state.username }
-                    onChange={ this.onChange }
-                    type="text"
-                    name="username"
-                    className={ classnames('form-control', { 'is-invalid': errors.username }) }
-                />
-                { errors.username && <span className='form-text text-muted'>{ errors.username }</span> }
-                </div>
+           <Row>
+               <Col>
 
-                <div className="form-group">
-                <label className="control-label">Email</label>
-
-                <input
-                    value={ this.state.email }
-                    onChange={ this.onChange }
-                    type="email"
-                    name="email"
-                    className={ classnames('form-control', { 'is-invalid': errors.email }) }
-                />
-                { errors.email && <span className='form-text text-muted'>{ errors.email }</span> }
-                </div>
-
-                <div className="form-group">
-                <label className="control-label">Password</label>
-
-                <input
-                    value={ this.state.password }
-                    onChange={ this.onChange }
-                    type="password"
-                    name="password"
-                    className={ classnames('form-control', { 'is-invalid': errors.password }) }
-                />
-                { errors.password && <span className='form-text text-muted'>{ errors.password }</span> }
-                </div>
-
-                <div className="form-group">
-                <label className="control-label">Password Confirmation</label>
-
-                <input
-                    value={ this.state.passwordConfirmation }
-                    onChange={ this.onChange }
-                    type="password"
-                    name="passwordConfirmation"
-                    className={ classnames('form-control', { 'is-invalid': errors.passwordConfirmation }) }
-                />
-                { errors.passwordConfirmation && <span className='form-text text-muted'>{ errors.passwordConfirmation }</span> }
-                </div>
-
-                <div className="form-group">
-                <button disabled={ this.state.isLoading }  className="btn btn-primary btn-lg">
-                    点击注册
-                </button>
-                        </div>
-                </form>
-            
-   
+               </Col>
+           </Row>
         )
     }
 }
