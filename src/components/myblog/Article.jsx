@@ -95,8 +95,6 @@ class Article extends MyBlog{
 
     render(){
         return(
-            
-            
                 <Row>
                     <Col className="articleaside" xs={0} sm={4} md={5}></Col>
                     <Col className="article"xs={24} sm={16} md={14}>

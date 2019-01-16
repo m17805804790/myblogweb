@@ -18,10 +18,15 @@ import Resume from './components/mainpage/Resume';
 export default (
     <div>
         <Route path="/" component={Nav}></Route>
+        <Route exact path="/"  component={MainPage}/>
+        <Route path="/ie" component={IE}></Route>
+        <Route path="/resume" component={Resume}></Route>
+        <Route path="/wrongpage" component={qiYong}></Route>
+        {/*注册登录*/}
         <Route path="/signup" component={SignupPage}></Route>
         <Route path="/login" component={LoginPage}></Route>
-        <Route exact path="/"  component={MainPage}/>
-        <Route path="/messagelist" component={MessageList}></Route>
+        {/*注册登录*/}
+        
         <Route path="/yysnav" component={YysNav}></Route>
         <Route path="/yyslist" component={YysList}></Route>
         <Route path="/fgoap" component={Fgoap}></Route>
@@ -31,8 +36,8 @@ export default (
         <Route path="/writearticle" component={WriteArticle}></Route>
         <Route path="/editarticle/:articlename/:simple" component={EditArticle}></Route>
         {/* blog */}
-        <Route path="/ie" component={IE}></Route>
-        <Route path="/resume" component={Resume}></Route>
-        <Route path="/wrongpage" component={qiYong}></Route>
+        {/* message*/}
+        <Route path="/messagelist" component={MessageList}></Route>
+        {/* message*/}
     </div>
 )

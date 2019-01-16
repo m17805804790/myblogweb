@@ -8,7 +8,6 @@
     "axios": "^0.18.0",
     "babel-plugin-import": "^1.11.0",
     "classnames": "^2.2.6",
-    "element-theme-default": "^1.4.13",
     "express": "^4.16.4",
     "highlight.js": "^9.13.1",
     "jwt-decode": "^2.2.0",
@@ -44,7 +43,6 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "gh-pages": "^2.0.1",
     "redux-devtools-extension": "^2.13.5",
     "redux-logger": "^3.0.6"
   },
@@ -58,6 +56,6 @@
   "author": "ylwbl",
   "bugs": {
     "url": "https://github.com/m17805804790/myblogweb/issues"
-  },
-  "homepage": "."
+  }
+  
 }

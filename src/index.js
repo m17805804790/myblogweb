@@ -12,7 +12,7 @@ import setAuthorizationToken from './utils/setAuthorizationToken';
 import { setCurrentUser,setCurrentPermission } from './actions/LoginActions';
 import jwtDecode from 'jwt-decode';
 import './index.less';
-import 'antd/dist/antd.css';
+
 
 
 
