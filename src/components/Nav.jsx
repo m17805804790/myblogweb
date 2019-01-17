@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { Menu, Modal, Input,message } from 'antd';
+
 import { connect } from 'react-redux';
 import { logout } from '../actions/LoginActions';
 import { Link } from 'react-router-dom';
@@ -152,17 +153,50 @@ class Nav extends Component {
         }else{
             axios.post('/api/signups/comfirmemail',{email:this.state.email}).then(
                 res=>{
-                    if(res.status==="cf"){
+                    console.log(res.data)
+                    if(res.data==="alreadyexist"){
                         message.error("邮箱已经注册过了",5);
                         this.setState({modalvisable:false});
-                    }else{
+                    }else if(res.data==="success"){
                         //需要一个发送邮件的库
+                        this.sendemail(this.state.email);
                         message.success("验证邮件已经发送到邮箱，请检查邮箱",5);
                         this.setState({modalvisable:false});
                     }
                 }
             )
         }
+    }
+    sendemail = (email)=>{
+        // let transporter = nodemailer.createTransport({
+        //     // host: 'smtp.ethereal.email',
+        //     service: 'qq', // 使用了内置传输发送邮件 查看支持列表：https://nodemailer.com/smtp/well-known/
+        //     port: 465, // SMTP 端口
+        //     secureConnection: true, // 使用了 SSL
+        //     auth: {
+        //       user: '1144951039@qq.com',
+        //       // 这里密码不是qq密码，是你设置的smtp授权码
+        //       pass: 'qkjjdlfjlaogfjdd',
+        //     }
+        //   });
+          
+        //   let mailOptions = {
+        //     from: '"永老无别离" <1144951039@qq.com>', // sender address
+        //     to: `${email}`, // list of receivers
+        //     subject: 'Hello', // Subject line
+        //     // 发送text或者html格式
+        //     // text: 'Hello world?', // plain text body
+        //     html: '<b>Hello world?</b>' // html body
+        //   };
+          
+        //   // send mail with defined transport object
+        //   transporter.sendMail(mailOptions, (error, info) => {
+        //     if (error) {
+        //       return console.log(error);
+        //     }
+        //     console.log('Message sent: %s', info.messageId);
+        //     // Message sent: <04ec7731-cc68-1ef6-303c-61b0f796b78f@qq.com>
+        //   });
     }
     enteremail = (e) => {
         if (this.isEmail(e.target.value)) {
