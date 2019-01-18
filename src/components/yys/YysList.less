@@ -18,25 +18,44 @@
   border:1px solid gold;
   border-radius: 10px;
 } */
-
+@g:gold;
+@purple:rgb(179, 20, 179);
+@sb : skyblue;
+@lgrey:lightgrey;
 .yyscontainer{
     height: calc(100vh - 45px);
 }
 .SSRborder div{
+  &:hover{
+    background-color:@g;
+    padding:16px 40px;
+  }
   position: relative;
-  border-color: gold;
+  border-color: @g;
 }
 .SRborder div{
+  &:hover{
+    background-color:@purple;
+    padding:16px 40px;
+  }
   position: relative;
-  border-color: rgb(207, 145, 207);
+  border-color: @purple;
 }
 .Rborer div{
+  &:hover{
+    background-color:@sb;
+    padding:16px 40px;
+  }
   position: relative;
-  border-color:skyblue;
+  border-color:@sb;
 }
 .Nborder div{
+  &:hover{
+    background-color:@lgrey;
+    padding:16px 40px;
+  }
   position: relative;
-  border-color: grey;
+  border-color: @lgrey;
 }
 .listitem{
   border: 1px solid #ccc;
@@ -52,9 +71,5 @@
   transition-duration: 0.5s;
   position: absolute;
 }
-.listitem:hover{
-    background-color:skyblue;
-    padding:16px 40px;
-    
-}
+
 

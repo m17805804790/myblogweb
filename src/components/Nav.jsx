@@ -133,7 +133,41 @@ class Nav extends Component {
         }
 
     }
-
+    setCookie(name,value,time){
+        let strsec = this.getsec(time);
+        let exp = new Date();
+        exp.setTime(exp.getTime() + strsec*1);
+        document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString();
+    }
+    getsec(str){
+        let str1=str.substring(1,str.length)*1;
+        let str2=str.substring(0,1);
+        if (str2==="s")
+        {
+        return str1*1000;
+        }
+        else if (str2==="h")
+        {
+        return str1*60*60*1000;
+        }
+        else if (str2==="d")
+        {
+        return str1*24*60*60*1000;
+        }
+    }
+    //这是有设定过期时间的使用示例：
+    //s20是代表20秒
+    //h是指小时，如12小时则是：h12
+    //d是天数，30天则：d30
+    getCookie(name){
+        let arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+        arr=document.cookie.match(reg)
+        if(arr){
+            return unescape(arr[2]);
+        }else{
+            return null;
+        }
+    }
 
     signupOnClick = (e) => {
         e.preventDefault();
@@ -159,45 +193,15 @@ class Nav extends Component {
                         this.setState({modalvisable:false});
                     }else if(res.data==="success"){
                         //需要一个发送邮件的库
-                        this.sendemail(this.state.email);
                         message.success("验证邮件已经发送到邮箱，请检查邮箱",5);
+                        this.setCookie("ylwblhavscomfirmemail",1,"d1")
                         this.setState({modalvisable:false});
                     }
                 }
             )
         }
     }
-    sendemail = (email)=>{
-        // let transporter = nodemailer.createTransport({
-        //     // host: 'smtp.ethereal.email',
-        //     service: 'qq', // 使用了内置传输发送邮件 查看支持列表：https://nodemailer.com/smtp/well-known/
-        //     port: 465, // SMTP 端口
-        //     secureConnection: true, // 使用了 SSL
-        //     auth: {
-        //       user: '1144951039@qq.com',
-        //       // 这里密码不是qq密码，是你设置的smtp授权码
-        //       pass: 'qkjjdlfjlaogfjdd',
-        //     }
-        //   });
-          
-        //   let mailOptions = {
-        //     from: '"永老无别离" <1144951039@qq.com>', // sender address
-        //     to: `${email}`, // list of receivers
-        //     subject: 'Hello', // Subject line
-        //     // 发送text或者html格式
-        //     // text: 'Hello world?', // plain text body
-        //     html: '<b>Hello world?</b>' // html body
-        //   };
-          
-        //   // send mail with defined transport object
-        //   transporter.sendMail(mailOptions, (error, info) => {
-        //     if (error) {
-        //       return console.log(error);
-        //     }
-        //     console.log('Message sent: %s', info.messageId);
-        //     // Message sent: <04ec7731-cc68-1ef6-303c-61b0f796b78f@qq.com>
-        //   });
-    }
+    
     enteremail = (e) => {
         if (this.isEmail(e.target.value)) {
             this.setState({
