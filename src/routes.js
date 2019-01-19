@@ -23,7 +23,7 @@ export default (
         <Route path="/resume" component={Resume}></Route>
         <Route path="/wrongpage" component={qiYong}></Route>
         {/*注册登录*/}
-        <Route path="/signup" component={SignupPage}></Route>
+        <Route path="/signup/:info" component={SignupPage}></Route>
         <Route path="/login" component={LoginPage}></Route>
         {/*注册登录*/}
         

@@ -185,7 +185,7 @@ class Nav extends Component {
             message.error("邮箱不正确哦",5);
             this.setState({modalvisable:false});
         }else{
-            axios.post('/api/signups/comfirmemail',{email:this.state.email}).then(
+            axios.post('/api/signups/comfirmemail',{email:this.state.email,url:window.location.pathname}).then(
                 res=>{
                     console.log(res.data)
                     if(res.data==="alreadyexist"){
@@ -195,7 +195,10 @@ class Nav extends Component {
                         //需要一个发送邮件的库
                         message.success("验证邮件已经发送到邮箱，请检查邮箱",5);
                         this.setCookie("ylwblhavscomfirmemail",1,"d1")
-                        this.setState({modalvisable:false});
+                        this.setState({
+                            modalvisable:false,
+                            email:''
+                        });
                     }
                 }
             )
@@ -244,7 +247,7 @@ class Nav extends Component {
 
     render() {
         const { isAuthenticated, permission } = this.props.login;
-        let p = <p style={{margin:"15px 0 0 0",color:"red"}}>郵箱貌似不正確哦</p>
+        let p = <p style={{margin:"15px 0 0 0",color:"red"}}>邮箱格式错误</p>
         return (
             <Fragment>
                 {this.comfirm(isAuthenticated, permission)}
