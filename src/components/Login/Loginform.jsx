@@ -82,7 +82,7 @@ class SigninForm extends Component{
     render(){  
         return(
             <Form onSubmit={this.onSubmit} className="login-form">
-               <h3>登录功能开放    <Icon type='man'/><Icon type='man'/><Icon type='man'/>然而注册没开放</h3>
+               <h3 style={{textAlign:"center"}}><Icon type='man'/><Icon type='man'/><Icon type='man'/></h3>
                <Form.Item>     
                 <Input
                     name="username"

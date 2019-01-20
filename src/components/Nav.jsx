@@ -100,9 +100,6 @@ class Nav extends Component {
                 <Menu.Item key="mainpage">
                     <Link to="/">永老无别离</Link>
                 </Menu.Item>
-                <Menu.Item key="signup">
-                    <a onClick={this.signupOnClick}>注册</a>
-                </Menu.Item>
                 <SubMenu title={<span className="submenu-title-wrapper">一点微小的贡献</span>}>
                     <MenuItemGroup title="Fgo">
                         <Menu.Item key="fgoap">
@@ -118,6 +115,9 @@ class Nav extends Component {
                 </SubMenu>
                 <Menu.Item key="login">
                     <Link to="/login">登录</Link>
+                </Menu.Item>
+                <Menu.Item key="signup">
+                    <a onClick={this.signupOnClick}>注册</a>
                 </Menu.Item>
             </Menu>
         )
