@@ -22,13 +22,16 @@
 @purple:rgb(179, 20, 179);
 @sb : skyblue;
 @lgrey:lightgrey;
+.Nborder{
+  margin-top: 20px;
+}
 .yyscontainer{
     height: calc(100vh - 45px);
 }
 .SSRborder div{
   &:hover{
     background-color:@g;
-    padding:16px 40px;
+    transform:scale(1.5);
   }
   position: relative;
   border-color: @g;
@@ -36,7 +39,7 @@
 .SRborder div{
   &:hover{
     background-color:@purple;
-    padding:16px 40px;
+    transform:scale(1.5);
   }
   position: relative;
   border-color: @purple;
@@ -44,7 +47,7 @@
 .Rborer div{
   &:hover{
     background-color:@sb;
-    padding:16px 40px;
+    transform:scale(1.5);
   }
   position: relative;
   border-color:@sb;
@@ -52,13 +55,13 @@
 .Nborder div{
   &:hover{
     background-color:@lgrey;
-    padding:16px 40px;
+    transform:scale(1.5);
   }
   position: relative;
   border-color: @lgrey;
 }
 .listitem{
-  border: 1px solid #ccc;
+  border: 1px solid ;
   border-radius: 5px;
   margin:100px 0 0 100px;
   text-align: center;
@@ -69,7 +72,7 @@
   cursor: pointer;
   transition-delay: 0.1s;
   transition-duration: 0.5s;
-  position: absolute;
+  position: relative;
 }
 
 

@@ -187,7 +187,6 @@ class Nav extends Component {
         }else{
             axios.post('/api/signups/comfirmemail',{email:this.state.email,url:window.location.pathname}).then(
                 res=>{
-                    console.log(res.data)
                     if(res.data==="alreadyexist"){
                         message.error("邮箱已经注册过了",5);
                         this.setState({modalvisable:false});

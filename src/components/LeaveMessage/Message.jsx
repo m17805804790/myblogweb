@@ -39,7 +39,7 @@ class Message extends Component{
             <Row>
                 <Row className={classnames({"message-lightblue":this.state.isborderblue},{"message-lightgreen":this.state.isbordergreen},{"message-lightyellow":this.state.isborderyellow})}>
                     <Col  sm={4} className="messageinfo">
-                        <div className="zuozhe">{this.props.arr.messageauthor}</div>
+                        <div className="zuozhe" style={{fontSize:"15px"}}>{this.props.arr.messageauthor}</div>
                     </Col>
                     <Col className="neirong" xs={24} sm={20}>
                         <p>{this.props.arr.message}</p>
