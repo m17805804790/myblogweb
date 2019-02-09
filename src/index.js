@@ -24,6 +24,7 @@ if (localStorage.jwtToken) {
   store.dispatch(setCurrentUser(jwtDecode(localStorage.jwtToken).username));
   store.dispatch(setCurrentPermission(jwtDecode(localStorage.jwtToken).permission))
 }
+
 ReactDOM.render(
     <Provider store={ store }>
         <Router routes={routes}>

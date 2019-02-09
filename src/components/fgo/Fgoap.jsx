@@ -134,8 +134,8 @@ export default class Fgoap extends Component{
     wxl = (arr) =>{           //我咸了
         if(arr.length===0){
             notification.open({
-                message: 'caonima',
-                description: 'fuck',
+                message: '尚未选择活动',
+                description: '选择活动列表下的一个活动',
             });
             this.setState({
                 btnability:true

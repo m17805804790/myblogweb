@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { Menu, Modal, Input,message } from 'antd';
-
+import isEmail from 'validator/lib/isEmail';
 import { connect } from 'react-redux';
 import { logout } from '../actions/LoginActions';
 import { Link } from 'react-router-dom';
@@ -218,14 +218,7 @@ class Nav extends Component {
             })
         }
     }
-    isEmail = (str) => {
-        let re = /^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
-        if (re.test(str)) {
-            return true
-        } else {
-            return false
-        }
-    }
+    
 
     countDown(sec = 3, tickCallback,cb) {
         cb();
