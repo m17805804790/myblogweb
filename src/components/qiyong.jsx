@@ -15,7 +15,7 @@ export default class qiYong extends Component{
     render(){
         return (
             
-            <div>wrong page</div>
+            <div>404:wrong page</div>
             
         )
     }
