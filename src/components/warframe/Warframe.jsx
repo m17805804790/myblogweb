@@ -77,6 +77,7 @@ class Warframe extends Component {
         )
 
     }
+    
     keepupdate = (ms) => {
         setInterval(this.getInfo(), ms)
     }
@@ -110,6 +111,27 @@ class Warframe extends Component {
             SiderNavisshow:this.state.SiderNavisshow?false:true
         })
     }
+    //用于切换垂直导航栏
+    timechange =(time)=>{
+        if(time<=86400000){
+            time = time/1e3;
+            let hour=Math.floor(time/3600);
+            let minute=Math.floor((time%3600)/60);
+            let second=time%60;
+            let realtime=``
+        }else{
+
+        }
+        return realtime
+    }
+    addzero=(num)=>{
+        if(num<10){
+            return `0${num}`
+        }else{
+            return num
+        }
+    }
+    //将秒转化为时间
     componentDidMount() {
         // this.keepupdate();
     }
