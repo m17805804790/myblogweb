@@ -20,7 +20,7 @@ if(process.env.NODE_ENV==="development"){
    store = createStore(rootReducer,applyMiddleware(thunk));
 }
 if (localStorage.jwtToken) {
-  setAuthorizationToken(localStorage.jwtToken);
+  // setAuthorizationToken(localStorage.jwtToken);
   store.dispatch(setCurrentUser(jwtDecode(localStorage.jwtToken).username));
   store.dispatch(setCurrentPermission(jwtDecode(localStorage.jwtToken).permission))
 }
