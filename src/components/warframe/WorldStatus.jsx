@@ -1,30 +1,39 @@
 import React, { Component, Fragment } from 'react'
-import { Card, Carousel } from 'antd';
+import { Card } from 'antd';
 
 class WorldStatus extends Component {
     constructor() {
         super();
         this.state = {
-            地球:"",
-            福尔图娜:"",
-            希图斯:""
+            地球: "",
+            福尔图娜: "",
+            希图斯: ""
 
         }
     }
-    componentDidMount(){
-        
+    componentDidMount() {
 
-        this.setState({
 
-        })
+
     }
-    //要求传过来的数据为[{},{},{}]这样子的数组
+    confirmisDay=(isDay)=>{
+        if(isDay){
+            return "白天"
+        }else{
+            return "黑夜"
+        }
+    }
 
     render() {
+        const { cetusstate } = this.props;
         return (
-            <Card style={{ width: "100%" }}>
-                
+
+            <Card title="希图斯状态" style={{ width: "100%" }}>
+                    <p>{`希图斯：${this.confirmisDay(cetusstate.isDay)}`}</p>
+                    <p>{}</p>
+
             </Card>
+
         )
     }
 }

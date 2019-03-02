@@ -8,7 +8,6 @@ import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 import {BrowserRouter as Router} from 'react-router-dom';
 import routes from './routes';
-import setAuthorizationToken from './utils/setAuthorizationToken';
 import { setCurrentUser,setCurrentPermission } from './actions/LoginActions';
 import jwtDecode from 'jwt-decode';
 import './index.less';

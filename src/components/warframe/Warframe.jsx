@@ -14,7 +14,7 @@ import ("./Warframe.less");
 
 
 
-const { Header, Content, Sider } = Layout;
+const {  Content } = Layout;
 class Warframe extends Component {
     constructor() {
         super();
@@ -103,7 +103,7 @@ class Warframe extends Component {
     
     
     */
-
+    
 
 
     changeSiderNav=()=>{
@@ -112,26 +112,8 @@ class Warframe extends Component {
         })
     }
     //用于切换垂直导航栏
-    timechange =(time)=>{
-        if(time<=86400000){
-            time = time/1e3;
-            let hour=Math.floor(time/3600);
-            let minute=Math.floor((time%3600)/60);
-            let second=time%60;
-            let realtime=``
-        }else{
-
-        }
-        return realtime
-    }
-    addzero=(num)=>{
-        if(num<10){
-            return `0${num}`
-        }else{
-            return num
-        }
-    }
-    //将秒转化为时间
+    
+    
     componentDidMount() {
         // this.keepupdate();
     }
@@ -143,7 +125,7 @@ class Warframe extends Component {
                 <Content style={{ background: '#fff', padding: 24, margin: 0, minHeight: 280 }}>
                   <Row>
                       <Col xs={24} sm={24} md={8} lg={8} className="bgcred">
-                      
+                        <WorldStatus cetusstate={this.state.warframeinfo.cetusCycle}/>
                       </Col>
                       <Col xs={24} sm={24} md={8} lg={8} className="bgcyellow">
                       

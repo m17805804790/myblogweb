@@ -7,7 +7,7 @@ const WarframeSiderNav = (props) => {
     return (
         <Sider  width={70} style={{ background: '#fff' }}>
             <Menu
-                style={{ borderRight: "1px dotted grey", width: "70px", minHeight: "890px" }}
+                style={{ borderRight: "1px solid grey", width: "70px", minHeight: "890px" }}
                 mode="inline"
             >
                 <Menu.Item key="2"><Tooltip title="实时信息" placement="right"><Icon type="bars" /></Tooltip></Menu.Item>

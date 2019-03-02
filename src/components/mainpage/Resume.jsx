@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import { Row, Col,Button } from 'antd';
-import axios from "axios";
+import {Row,Col,Card} from 'antd';
 import "./Resume.less";
 export default class Resume extends Component{
 
@@ -13,44 +12,43 @@ export default class Resume extends Component{
     }
     
 
-    shiningToggle=()=>{
-        this.setState({
-            shiningmode:this.state.shiningmode===false?true:false,
-            btnname:this.state.btnname==="太土了"?"还是土一点好":"太土了"
-        })
-    }
+   
 
     render(){
         return(
             <Row>
-                <Col xs={0}sm={3}md={5}></Col>
-                <Col className="resume-main"xs={24}sm={18}md={14}>
-                    <div className="resume-basic">
-                        <div className="resume-basic-pic">
-                            <div style={{position:"absolute",top:"20%",right:"47%"}}>这<br/>是<br/>照<br/>片</div>
-                        </div>
-                        <div className="resume-basic-list">
-                            <div className="resume-basic-listitems">
-                                <p >姓名：陈缘</p>
-                            </div>
-                            <div className="resume-basic-listitems">
-                                <p >年龄：23</p>
-                            </div>
-                            <div className="resume-basic-listitems">
-                                <p >电话：17805804790</p>
-                            </div>
-                            <div className="resume-basic-listitems">
-                                <p >邮箱：1144951039@qq.com</p>
-                            </div>
-                            <div className="resume-basic-listitems">
-                                <p >籍贯：江苏江阴</p>
-                            </div>
-                            <div className="resume-basic-listitems">
-                                <p >求职意向：前端</p>
-                            </div>
-                        
-                        </div>
-                    </div>
+                <Col xs={0}sm={3}md={6}></Col>
+                <Col className="resume-main"xs={24}sm={18}md={12}>
+                    <Row className="resume-basic">
+                    <Col xs={0}sm={0} md={7}style={{height:"250px"}}>
+                        <img style={{height:"250px",width:"200px",alignItems:"center"}}src={require("../img/qingji.jpg")} alt="qj"/>
+                    </Col>
+                    <Col xs={0}sm={0}md={1}style={{height:"250px"}}>
+                    
+                    </Col>
+                        <Col sm={24}md={16}style={{height:"250px"}}>
+                            <Card style={{backgroundColor: "rgba(192, 253, 255, 0.932)"}}>
+                                <div className="resume-basic-listitems">
+                                    <p >姓名：陈缘</p>
+                                </div>
+                                <div className="resume-basic-listitems">
+                                    <p >年龄：23</p>
+                                </div>
+                                <div className="resume-basic-listitems">
+                                    <p >电话：17805804790</p>
+                                </div>
+                                <div className="resume-basic-listitems">
+                                    <p >邮箱：1144951039@qq.com</p>
+                                </div>
+                                <div className="resume-basic-listitems">
+                                    <p >籍贯：江苏江阴</p>
+                                </div>
+                                <div className="resume-basic-listitems">
+                                    <p >求职意向：前端</p>
+                                </div>
+                            </Card>
+                        </Col>
+                    </Row>
                     <div className="resume-box">
                         <p className="resume-box-title">教育背景</p>
                         <p className="resume-box-content">大学英语四级 </p>
@@ -66,8 +64,9 @@ export default class Resume extends Component{
                     </div>
                     
                 </Col>
-                <Col xs={0}sm={3}md={5}><Button onClick={this.shiningToggle}>{this.state.btnname}</Button></Col>
+                <Col xs={0}sm={3}md={6}></Col>
             </Row>
+            
         )
     }
 }

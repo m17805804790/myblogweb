@@ -82,7 +82,7 @@ class SigninForm extends Component{
     render(){  
         return(
             <Form onSubmit={this.onSubmit} className="login-form">
-               <h3 style={{textAlign:"center"}}><Icon type='man'/><Icon type='man'/><Icon type='man'/></h3>
+               <h3 style={{textAlign:"center",marginTop:"30px",marginBottom:"30px"}}>{"登录"}</h3>
                <Form.Item>     
                 <Input
                     name="username"

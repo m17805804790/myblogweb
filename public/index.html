@@ -11,12 +11,28 @@
     <script src="https://cdn.bootcss.com/highlight.js/9.13.1/highlight.min.js"></script>
     <title>永老无别离</title>
   </head>
+  <style>
+      .loading{
+        position: absolute;
+        left: 50%;
+        top: 40%;
+      }
+  </style>
   <body>
-    
+    <!--[if IE]><p class="alert alert-warning alert-dismissible browsehappy">你正在使用一个<strong>过时</strong>的浏览器。请<a class="link" href="http://browsehappy.com">升级你的浏览器</a>以查看此页面。</p></p><![endif]-->
+    <!--[if !IE]><!-->
+      
     <div id="root">
-      <!-- <img src="localhost:3000/src/components/img/loading.gif" alt="加载中"> -->
-      loading...!
+      <div class="loading">
+        <img src="./loading.gif" alt="加载中">
+        <br/>
+        <p>loading...!</p>
+      </div>
     </div>
+    <noscript>
+      <p>Please enable JavaScript to view this page.</p>
+      <p>请启用JavaScript已查看本页面。</p>
+    </noscript>
     
   </body>
 </html>

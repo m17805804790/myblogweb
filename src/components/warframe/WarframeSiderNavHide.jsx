@@ -10,7 +10,7 @@ const WarframeSiderNavHide = (props) => {
                 mode="inline"
 
             >
-                <Menu.Item key="1" style={{marginLeft:"-26px",marginTop:"445px" }}><Tooltip title="显示菜单" placement="right"><Icon type="caret-right"  /></Tooltip></Menu.Item>
+                <Menu.Item key="1" style={{marginLeft:"-26px",position:"fixed",top:"45%"}}><Tooltip title="显示菜单" placement="right"><Icon type="caret-right"  /></Tooltip></Menu.Item>
             </Menu>
         </Sider>
     )

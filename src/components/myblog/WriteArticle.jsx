@@ -90,7 +90,7 @@ class WriteArticle extends Component {
         return(
             <div>
                 <Row>
-                    <Col className="articleaside" xs={0} sm={4} md={5}></Col>
+                    <Col  xs={0} sm={4} md={5}></Col>
                     <Col className="articleplace"xs={24}sm={16} md={14}>
                         <Input 
                             name='articlename'
@@ -119,7 +119,7 @@ class WriteArticle extends Component {
                         点击发布
                         </Button>
                     </Col>
-                    <Col className="articleaside" xs={0} sm={4} md={5}>
+                    <Col  xs={0} sm={4} md={5}>
                     </Col>
                 </Row>
             </div>

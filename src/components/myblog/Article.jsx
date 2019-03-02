@@ -25,7 +25,7 @@ class Article extends MyBlog{
             renderer: rendererMD,
             gfm: true,
             tables: true,
-            breaks: true    ,
+            breaks: true,
             pedantic: false,
             sanitize: false,
             smartLists: true,
@@ -96,14 +96,14 @@ class Article extends MyBlog{
     render(){
         return(
                 <Row>
-                    <Col className="articleaside" xs={0} sm={4} md={5}></Col>
-                    <Col className="article"xs={24} sm={16} md={14}>
+                    <Col  xs={0} sm={0} md={4}></Col>
+                    <Col className="article"xs={24} sm={24} md={16}>
                         <h1 style={{textAlign:'center',paddingTop:'10px'}}>{this.state.articlename}</h1>
                         <h6 style={{textAlign:'center'}}>{"最后编辑时间："}{this.state.date}</h6>
                         <div className="articleplace"dangerouslySetInnerHTML={{__html:marked(this.state.article)}}></div>
                         {this.showeditbutton(this.props)}
                     </Col>
-                    <Col className="articleaside" xs={0} sm={4} md={5}></Col>
+                    <Col  xs={0} sm={0} md={4}></Col>
                     <Modal
                     title="警告"
                     visible={this.state.visible}

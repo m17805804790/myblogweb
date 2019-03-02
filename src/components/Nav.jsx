@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import { logout } from '../actions/LoginActions';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-require('./Nav.css')
 
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
@@ -17,6 +16,7 @@ class Nav extends Component {
             modalvisable: false,
             isEmail: true,
             email: '',
+            username:''
         }
     }
 
@@ -54,11 +54,18 @@ class Nav extends Component {
                         <Menu.Item key="yys">
                             <Link to="/yysnav">阴阳师</Link>
                         </Menu.Item>
-
+                    </MenuItemGroup>
+                    <MenuItemGroup>
+                        <Menu.Item key="warframe">
+                            <Link to="/warframe">warframe</Link>
+                        </Menu.Item>
                     </MenuItemGroup>
                 </SubMenu>
                 <Menu.Item key="logout">
                     <Link to="javascript：void" onClick={this.logout.bind(this)}>登出</Link>
+                </Menu.Item>
+                <Menu.Item key="username">
+                    <Link to="/personalinfo">{this.showusername(this.props.login.username)}</Link>
                 </Menu.Item>
             </Menu>
         );
@@ -76,20 +83,27 @@ class Nav extends Component {
                     <Link to="/messagelist">留言</Link>
                 </Menu.Item>
                 <SubMenu title={<span className="submenu-title-wrapper">一点微小的贡献</span>}>
-                    <MenuItemGroup title="Fgo">
+                    <MenuItemGroup>
                         <Menu.Item key="fgoap">
                             <Link to="/fgoap">fgo真好玩</Link>
                         </Menu.Item>
                     </MenuItemGroup>
-                    <MenuItemGroup title="阴阳师">
+                    <MenuItemGroup>
                         <Menu.Item key="yys">
                             <Link to="/yysnav">阴阳师</Link>
                         </Menu.Item>
-
+                    </MenuItemGroup>
+                    <MenuItemGroup>
+                        <Menu.Item key="warframe">
+                            <Link to="/warframe">warframe</Link>
+                        </Menu.Item>
                     </MenuItemGroup>
                 </SubMenu>
                 <Menu.Item key="logout">
                     <Link to="javascript：void" onClick={this.logout.bind(this)}>登出</Link>
+                </Menu.Item>
+                <Menu.Item key="username">
+                    <Link to="/personalinfo">{this.showusername(this.props.login.username)}</Link>
                 </Menu.Item>
             </Menu>
         );
@@ -100,17 +114,24 @@ class Nav extends Component {
                 <Menu.Item key="mainpage">
                     <Link to="/">永老无别离</Link>
                 </Menu.Item>
+                <Menu.Item key="articlelist">
+                    <Link to="/articlelist">我的日志</Link>
+                </Menu.Item>
                 <SubMenu title={<span className="submenu-title-wrapper">一点微小的贡献</span>}>
                     <MenuItemGroup title="Fgo">
                         <Menu.Item key="fgoap">
                             <Link to="/fgoap">fgo真好玩</Link>
                         </Menu.Item>
                     </MenuItemGroup>
-                    <MenuItemGroup title="阴阳师">
+                    <MenuItemGroup>
                         <Menu.Item key="yys">
                             <Link to="/yysnav">阴阳师</Link>
                         </Menu.Item>
-
+                    </MenuItemGroup>
+                    <MenuItemGroup>
+                        <Menu.Item key="warframe">
+                            <Link to="/warframe">warframe</Link>
+                        </Menu.Item>
                     </MenuItemGroup>
                 </SubMenu>
                 <Menu.Item key="login">
@@ -205,7 +226,7 @@ class Nav extends Component {
     }
     
     enteremail = (e) => {
-        if (this.isEmail(e.target.value)) {
+        if (isEmail(e.target.value)) {
             this.setState({
                 isEmail: true,
                 email: e.target.value
@@ -218,7 +239,11 @@ class Nav extends Component {
             })
         }
     }
-    
+    showusername=(username)=>{
+        if(username){
+            return username
+        }
+    }
 
     countDown(sec = 3, tickCallback,cb) {
         cb();
@@ -238,6 +263,7 @@ class Nav extends Component {
 
 
     render() {
+        console.log(this.props)
         const { isAuthenticated, permission } = this.props.login;
         let p = <p style={{margin:"15px 0 0 0",color:"red"}}>邮箱格式错误</p>
         return (
