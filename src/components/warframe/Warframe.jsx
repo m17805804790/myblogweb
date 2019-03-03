@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
 import axios from 'axios';
-// import qs from 'qs';
 import { Col, Row, Layout } from 'antd';
-import { setsetWarframeToken, setAuthorizationToken } from '../../utils/setAuthorizationToken';
 import deepTranslate from '../../utils/translate';
 import WarframeSiderNav from './WarframeSiderNav';
 import WarframeSiderNavHide from './WarframeSiderNavHide';
-import WorldStatus from './WorldStatus';
+import CetusStatus from './CetusStatus';
 
 
 import ("./Warframe.less");
@@ -68,11 +66,10 @@ class Warframe extends Component {
     getInfo = () => {
         axios.get(`https://api.warframestat.us/pc`).then(
             res => {
-                if (res.data !== this.state.warframeinfo) {
-                    this.setState({
-                        warframeinfo: deepTranslate(res.data)
-                    })
-                }
+                this.setState({
+                    warframeinfo: deepTranslate(res.data)
+                })
+                
             }
         )
 
@@ -82,27 +79,7 @@ class Warframe extends Component {
         setInterval(this.getInfo(), ms)
     }
     //暂时不做优化
-    /*api:
-    希图斯信息:/cetusStatus     √
-    希图斯赏金任务:/ostron
-    地球信息:/earthStatus           
-    福尔图娜信息:/vallisStatus
-    福尔图娜赏金任务:/solaris
-    入侵建造进度:/constructionProgress
-    新闻:/news
-    虚空商人:/voidTrader       √
-    Darvo每日特惠:/darvo       
-    警报:/alert                 √
-    入侵:/invasion
-    裂缝:/fissure                   √
-    突击:/sortie
-    活动/战术警报/突发事件:/event     √
-    追随者:/stalker
-    Warframe Market 价格查询API:/wfa/basic/{platform}/wm/{query}
-    紫卡先放放
     
-    
-    */
     
 
 
@@ -115,9 +92,10 @@ class Warframe extends Component {
     
     
     componentDidMount() {
-        // this.keepupdate();
+        this.getInfo();
     }
     render() {
+        console.log(this.state)
         return (
             <Layout>
               {this.state.SiderNavisshow?<WarframeSiderNav togglechange={this.changeSiderNav.bind(this)}/>:<WarframeSiderNavHide togglechange={this.changeSiderNav.bind(this)}/>}
@@ -125,7 +103,7 @@ class Warframe extends Component {
                 <Content style={{ background: '#fff', padding: 24, margin: 0, minHeight: 280 }}>
                   <Row>
                       <Col xs={24} sm={24} md={8} lg={8} className="bgcred">
-                        <WorldStatus cetusstate={this.state.warframeinfo.cetusCycle}/>
+                        <CetusStatus cetusstate={this.state.warframeinfo.cetusCycle}/>
                       </Col>
                       <Col xs={24} sm={24} md={8} lg={8} className="bgcyellow">
                       

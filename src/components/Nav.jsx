@@ -263,7 +263,7 @@ class Nav extends Component {
 
 
     render() {
-        console.log(this.props)
+        
         const { isAuthenticated, permission } = this.props.login;
         let p = <p style={{margin:"15px 0 0 0",color:"red"}}>邮箱格式错误</p>
         return (
