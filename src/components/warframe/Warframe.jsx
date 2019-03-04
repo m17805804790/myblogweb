@@ -5,8 +5,7 @@ import deepTranslate from '../../utils/translate';
 import WarframeSiderNav from './WarframeSiderNav';
 import WarframeSiderNavHide from './WarframeSiderNavHide';
 import CetusStatus from './CetusStatus';
-
-
+import { dealtimetamptos } from '../../utils/timechange';
 import ("./Warframe.less");
 
 
@@ -18,7 +17,9 @@ class Warframe extends Component {
         super();
         this.state = {
             warframeinfo: {},
-            SiderNavisshow: false
+            SiderNavisshow: false,
+            successgetinfo:false,
+            cetuslefttime:0,
         }
     }
     b64EncodeUnicode(str) {
@@ -66,55 +67,68 @@ class Warframe extends Component {
     getInfo = () => {
         axios.get(`https://api.warframestat.us/pc`).then(
             res => {
-                this.setState({
-                    warframeinfo: deepTranslate(res.data)
-                })
+                if(res.status===200){
+                    this.setState({
+                        warframeinfo: deepTranslate(res.data),
+                        successgetinfo:true,
+                        cetuslefttime:dealtimetamptos(res.data.cetusCycle.timeLeft)
+                    })
+                    // let timer=setInterval(
+                    //     ()=>{
+                    //         this.setState({cetuslefttime:this.state.cetuslefttime--})
+                    //     },1e3
+                    // )
+                }
+                
                 
             }
         )
 
     }
-    
-    keepupdate = (ms) => {
-        setInterval(this.getInfo(), ms)
-    }
-    //暂时不做优化
-    
-    
-
-
     changeSiderNav=()=>{
         this.setState({
             SiderNavisshow:this.state.SiderNavisshow?false:true
         })
     }
     //用于切换垂直导航栏
-    
+    tick() {
+        this.setState({
+            cetuslefttime: this.state.cetuslefttime-1
+        });
+      }
     
     componentDidMount() {
         this.getInfo();
+        this.timerID = setInterval(
+            () => this.tick(),
+            1000
+          );  
+        
     }
+    componentWillUnmount() {
+        clearInterval(this.timerID);
+      }
     render() {
-        console.log(this.state)
         return (
             <Layout>
-              {this.state.SiderNavisshow?<WarframeSiderNav togglechange={this.changeSiderNav.bind(this)}/>:<WarframeSiderNavHide togglechange={this.changeSiderNav.bind(this)}/>}
-              <Layout>
-                <Content style={{ background: '#fff', padding: 24, margin: 0, minHeight: 280 }}>
-                  <Row>
-                      <Col xs={24} sm={24} md={8} lg={8} className="bgcred">
-                        <CetusStatus cetusstate={this.state.warframeinfo.cetusCycle}/>
-                      </Col>
-                      <Col xs={24} sm={24} md={8} lg={8} className="bgcyellow">
-                      
-                      </Col>
-                      <Col xs={24} sm={24} md={8} lg={8}className="bgcred">
-                      
-                      </Col>
-                      
-                  </Row>
-                </Content>
-              </Layout>
+                
+                {this.state.SiderNavisshow?<WarframeSiderNav togglechange={this.changeSiderNav.bind(this)}/>:<WarframeSiderNavHide togglechange={this.changeSiderNav.bind(this)}/>}
+                <Layout>
+                    <Content style={{ background: '#fff', padding: 24, margin: 0, minHeight: 280 }}>
+                        <Row>
+                            <Col xs={24} sm={24} md={8} lg={8} className="bgcred">
+                                <CetusStatus cetusstate={this.state.warframeinfo.cetusCycle}success={this.state.successgetinfo}cetuslefttime={this.state.cetuslefttime}/>
+                            </Col>
+                            <Col xs={24} sm={24} md={8} lg={8} className="bgcyellow">
+                            
+                            </Col>
+                            <Col xs={24} sm={24} md={8} lg={8}className="bgcred">
+                            
+                            </Col>
+                            
+                        </Row>
+                    </Content>
+                </Layout>
             
           </Layout>
         )

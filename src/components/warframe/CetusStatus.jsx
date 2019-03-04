@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import { Card } from 'antd';
-import {dealtimetamptotamp} from '../../utils/timechange'
+import timechange,{dealtimetamptos} from '../../utils/timechange'
 class CetusStatus extends Component {
     constructor() {
         super();
@@ -8,18 +8,11 @@ class CetusStatus extends Component {
             地球: "",
             福尔图娜: "",
             希图斯: "",
-            cetustime:"",
+            cetuslefttime:"",
         }
     }
     componentDidMount() {
-        if(this.props.cetusstate){
-            let timetamp = dealtimetamptotamp(this.props.cetusstate.timeLeft)
-            this.setState({
-                cetustime:timetamp
-            })
-        }
-
-
+        
     }
     confirmisDay=(isDay)=>{
         if(isDay){
@@ -28,23 +21,22 @@ class CetusStatus extends Component {
             return "黑夜"
         }
     }
-    timecountdown=(time)=>{
-        setInterval(()=>{
-            this.setState({
-                cetustime:time
-            })
-        },1e3)
-    }
+    
     render() {
-        const { cetusstate } = this.props;
-        return (
-            <Card title="希图斯状态" style={{ width: "100%" }}>
-                    <p>{`希图斯：${this.confirmisDay(cetusstate.isDay)}`}</p>
-                    <p>{`剩余时间:${this.state.cetustime}`}</p>
-
-            </Card>
-
-        )
+        const { cetusstate,success,cetuslefttime } = this.props;
+        if(success){
+            return (
+                <Card title="希图斯状态" style={{ width: "100%" }}>
+                        <p>{`希图斯：${cetusstate.isDay?"白天":"黑夜"}`}</p>
+                        <p>{`剩余时间:${timechange(cetuslefttime,false)}`}</p>
+                </Card>
+    
+            )
+        }else{
+            return (
+                <div></div>
+            )
+        }
     }
 }
 
