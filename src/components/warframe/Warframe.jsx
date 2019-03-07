@@ -73,11 +73,6 @@ class Warframe extends Component {
                         successgetinfo:true,
                         cetuslefttime:dealtimetamptos(res.data.cetusCycle.timeLeft)
                     })
-                    // let timer=setInterval(
-                    //     ()=>{
-                    //         this.setState({cetuslefttime:this.state.cetuslefttime--})
-                    //     },1e3
-                    // )
                 }
                 
                 

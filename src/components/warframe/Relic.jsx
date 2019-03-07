@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { Card } from 'antd';
 import timechange from '../../utils/timechange'
-class CetusStatus extends Component {
+class Relic extends Component {
     constructor() {
         super();
         this.state = {
@@ -14,13 +14,7 @@ class CetusStatus extends Component {
     componentDidMount() {
         
     }
-    confirmisDay=(isDay)=>{
-        if(isDay){
-            return "白天"
-        }else{
-            return "黑夜"
-        }
-    }
+    
     
     render() {
         const { cetusstate,success,cetuslefttime } = this.props;
@@ -40,4 +34,4 @@ class CetusStatus extends Component {
     }
 }
 
-export default CetusStatus;
+export default Relic;
