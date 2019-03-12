@@ -15,7 +15,8 @@ import WriteArticle from './components/myblog/WriteArticle';
 import EditArticle from './components/myblog/EditArticle';
 import IE from './components/IE';
 import Resume from './components/mainpage/Resume';
-import Warframe from './components/warframe/Warframe'
+import Warframe from './components/warframe/Warframe';
+import Work from './components/work/Work';
 export default (
     <div>
         <Route path="/" component={Nav}></Route>
@@ -43,5 +44,8 @@ export default (
         {/*warframe*/}
         <Route path="/warframe"component={Warframe}></Route>
         {/*warframe*/}
+        {/*work*/}
+        <Route path="/work"component={Work}></Route>
+        {/*work*/}
     </div>
 )

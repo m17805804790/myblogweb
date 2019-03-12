@@ -133,6 +133,11 @@ class Nav extends Component {
                             <Link to="/warframe">warframe</Link>
                         </Menu.Item>
                     </MenuItemGroup>
+                    <MenuItemGroup>
+                        <Menu.Item key="work">
+                            <Link to="/work">work</Link>
+                        </Menu.Item>
+                    </MenuItemGroup>
                 </SubMenu>
                 <Menu.Item key="login">
                     <Link to="/login">登录</Link>
