@@ -5,31 +5,36 @@ class Fissures extends Component {
     constructor() {
         super();
         this.state = {
-            地球: "",
-            福尔图娜: "",
-            希图斯: "",
-            cetuslefttime:"",
+            lefttime: "",
+            fissures:"",
         }
     }
     componentDidMount() {
-        
+
     }
-    
-    // renderfissures=(fissures)=>{
-    //     let items=[];
-    //     for(let i=0;i<fissures.length;i++){
-    //         items.push()
-    //     }
-    // }
+
+    renderfissures = (fissures) => {
+        let items = [];
+        for (let i = 0; i < fissures.length; i++) {
+            items.push()
+        }
+    }
+    tick=(fissures)=>{
+        setInterval(()=>{
+            for (let i = 0; i < fissures.length; i++) {
+                this.setState({lefttime:this.state.lefttime.map(v=>v-1)})
+            }
+        },1e3)
+    }
     render() {
-        const { cetusstate,success,cetuslefttime } = this.props;
-        if(success){
+        const { fissures, success } = this.props;
+        if (success) {
             return (
                 <Card title="裂缝" style={{ width: "100%" }}>
-                    
+                                         
                 </Card>
             )
-        }else{
+        } else {
             return (
                 <div></div>
             )
