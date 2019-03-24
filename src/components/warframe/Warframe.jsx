@@ -5,7 +5,9 @@ import deepTranslate from '../../utils/translate';
 import WarframeSiderNav from './WarframeSiderNav';
 import WarframeSiderNavHide from './WarframeSiderNavHide';
 import CetusStatus from './CetusStatus';
+import Fissures from './Fissures';
 import { dealtimetamptos } from '../../utils/timechange';
+
 import ("./Warframe.less");
 
 
@@ -115,7 +117,7 @@ class Warframe extends Component {
                                 <CetusStatus cetusstate={this.state.warframeinfo.cetusCycle}success={this.state.successgetinfo}cetuslefttime={this.state.cetuslefttime}/>
                             </Col>
                             <Col xs={24} sm={24} md={8} lg={8} className="bgcyellow">
-                            
+                                <Fissures fissures={this.state.warframeinfo.fissures} success={this.state.successgetinfo}/>
                             </Col>
                             <Col xs={24} sm={24} md={8} lg={8}className="bgcred">
                             
